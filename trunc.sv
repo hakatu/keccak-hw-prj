@@ -1,0 +1,73 @@
+/* Keccak Core
+	Module: buffer in
+	Date: 7/1/2021
+	Author: Tran Cong Tien
+	ID: 1810580
+*/
+
+module trunc(clk, rst_n, tr_out_string_finish, d, cmode, ready, dt_o, finish_hash);
+	input		clk;
+	input		rst_n;
+	input		[1599:0] tr_out_string_finish;
+	input		[10:0] d;
+	input		[2:0] cmode;
+	input		ready;
+	output	logic	[31:0] dt_o;
+	output	logic	finish_hash;
+	
+	logic		[7:0] out_mem [0:127];
+	logic		[5:0] num_block;
+	parameter 	sha3_224_mode = 0;
+	parameter	sha3_256_mode = 1;
+	parameter	sha3_384_mode = 2;
+	parameter	sha3_512_mode = 3;
+	parameter	shake_128_mode = 4;
+	parameter	shake_256_mode = 5;
+	integer 	i;
+always_comb
+begin
+	{out_mem[7], out_mem[6], out_mem[5], out_mem[4], out_mem[3], out_mem[2], out_mem[1], out_mem[0]}			=	tr_out_string_finish[63:0];
+	{out_mem[15], out_mem[14], out_mem[13], out_mem[12], out_mem[11], out_mem[10], out_mem[9], out_mem[8]}			=	tr_out_string_finish[127:64];
+	{out_mem[23], out_mem[22], out_mem[21], out_mem[20], out_mem[19], out_mem[18], out_mem[17], out_mem[16]}		=	tr_out_string_finish[191:128];
+	{out_mem[31], out_mem[30], out_mem[29], out_mem[28], out_mem[27], out_mem[26], out_mem[25], out_mem[24]}		=	tr_out_string_finish[255:192];
+	{out_mem[39], out_mem[38], out_mem[37], out_mem[36], out_mem[35], out_mem[34], out_mem[33], out_mem[32]}		=	tr_out_string_finish[319:256];
+	{out_mem[47], out_mem[46], out_mem[45], out_mem[44], out_mem[43], out_mem[42], out_mem[41], out_mem[40]}		=	tr_out_string_finish[383:320];
+	{out_mem[55], out_mem[54], out_mem[53], out_mem[52], out_mem[51], out_mem[50], out_mem[49], out_mem[48]}		=	tr_out_string_finish[447:384];
+	{out_mem[63], out_mem[62], out_mem[61], out_mem[60], out_mem[59], out_mem[58], out_mem[57], out_mem[56]}		=	tr_out_string_finish[511:448];
+	{out_mem[71], out_mem[70], out_mem[69], out_mem[68], out_mem[67], out_mem[66], out_mem[65], out_mem[64]}		=	tr_out_string_finish[575:512];
+	{out_mem[79], out_mem[78], out_mem[77], out_mem[76], out_mem[75], out_mem[74], out_mem[73], out_mem[72]}		=	tr_out_string_finish[639:576];
+	{out_mem[87], out_mem[86], out_mem[85], out_mem[84], out_mem[83], out_mem[82], out_mem[81], out_mem[80]}		=	tr_out_string_finish[703:640];
+	{out_mem[95], out_mem[94], out_mem[93], out_mem[92], out_mem[91], out_mem[90], out_mem[89], out_mem[88]}		=	tr_out_string_finish[767:704];
+	{out_mem[103], out_mem[102], out_mem[101], out_mem[100], out_mem[99], out_mem[98], out_mem[97], out_mem[96]}		=	tr_out_string_finish[831:768];
+	{out_mem[111], out_mem[110], out_mem[109], out_mem[108], out_mem[107], out_mem[106], out_mem[105], out_mem[104]}	=	tr_out_string_finish[895:832];
+	{out_mem[119], out_mem[118], out_mem[117], out_mem[116], out_mem[115], out_mem[114], out_mem[113], out_mem[112]}	=	tr_out_string_finish[959:896];
+	{out_mem[127], out_mem[126], out_mem[125], out_mem[124], out_mem[123], out_mem[122], out_mem[121], out_mem[120]}	=	tr_out_string_finish[1023:960];
+end
+
+always_comb
+begin
+	case (cmode)
+		sha3_224_mode: 				num_block  = 7;		// num_block = length/32
+		sha3_256_mode:				num_block  = 8;
+		sha3_384_mode:				num_block  = 12;
+		sha3_512_mode:				num_block  = 16;
+		shake_128_mode, shake_256_mode:		num_block  = d/32;
+		default:				num_block  = 0;
+	endcase
+end
+
+always_ff @(posedge clk or negedge rst_n)
+begin
+	if (!rst_n) begin	dt_o <= 0; finish_hash <= 0; i <= 0; end
+	else
+	begin
+		if (ready)
+			if (i < num_block)
+				begin
+						dt_o <= {out_mem[i*4], out_mem[i*4+1], out_mem[i*4+2], out_mem[i*4+3]};
+						i = i + 1;
+				end	
+			else finish_hash <= 1;
+	end
+end
+endmodule

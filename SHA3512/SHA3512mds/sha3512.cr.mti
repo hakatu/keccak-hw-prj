@@ -1,0 +1,71 @@
+C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder1.v {1 {vlog -work work C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module test_padder1
+
+Top level modules:
+	test_padder1
+
+} {} {}} C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_f_permutation.v {1 {vlog -work work C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_f_permutation.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module test_f_permutation
+
+Top level modules:
+	test_f_permutation
+
+} {} {}} C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/rtl/round2in1.v {1 {vlog -work work C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/rtl/round2in1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module round2in1
+
+Top level modules:
+	round2in1
+
+} {} {}} C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/rtl/keccak.v {1 {vlog -work work C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/rtl/keccak.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module keccak
+
+Top level modules:
+	keccak
+
+} {} {}} C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_keccak.v {1 {vlog -work work C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_keccak.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module test_keccak
+
+Top level modules:
+	test_keccak
+
+} {} {}} C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/rtl/rconst2in1.v {1 {vlog -work work C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/rtl/rconst2in1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module rconst2in1
+
+Top level modules:
+	rconst2in1
+
+} {} {}} C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_rconst2in1.v {1 {vlog -work work C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_rconst2in1.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module test_rconst2in1
+
+Top level modules:
+	test_rconst2in1
+
+} {} {}} C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v {1 {vlog -work work C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module padder
+
+Top level modules:
+	padder
+
+} {} {}} C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder.v {1 {vlog -work work C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module test_padder
+
+Top level modules:
+	test_padder
+
+} {} {}} C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v {1 {vlog -work work C:/Users/Admin/Documents/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module f_permutation
+
+Top level modules:
+	f_permutation
+
+} {} {}}

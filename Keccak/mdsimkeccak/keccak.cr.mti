@@ -1,0 +1,99 @@
+I:/Keccak/Keccak/Keccak-256/keccak_round.vhd {1 {vcom -work work -2002 -explicit I:/Keccak/Keccak/Keccak-256/keccak_round.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package std_logic_arith
+-- Loading package keccak_globals
+-- Compiling entity keccak_round
+-- Compiling architecture rtl of keccak_round
+
+} {} {}} I:/Keccak/Keccak/Keccak-256/keccak_globals.vhd {1 {vcom -work work -2002 -explicit I:/Keccak/Keccak/Keccak-256/keccak_globals.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package std_logic_arith
+-- Compiling package keccak_globals
+
+} {} {}} I:/Keccak/Keccak/Keccak-256/tb_keccak_permutation.vhd {1 {vcom -work work -2002 -explicit I:/Keccak/Keccak/Keccak-256/tb_keccak_permutation.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package std_logic_arith
+-- Loading package keccak_globals
+-- Loading package std_logic_textio
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity keccak_permutation_tb
+-- Compiling architecture tb of keccak_permutation_tb
+
+} {} {}} I:/Keccak/Keccak/Keccak-256/keccak_wrappe_3_by_3.vhd {1 {vcom -work work -2002 -explicit I:/Keccak/Keccak/Keccak-256/keccak_wrappe_3_by_3.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package std_logic_arith
+-- Loading package keccak_globals
+-- Compiling entity crypto_fpga
+-- Compiling architecture rtl of crypto_fpga
+
+} {} {}} I:/Keccak/Keccak/Keccak-256/keccak_round_constants_gen.vhd {1 {vcom -work work -2002 -explicit I:/Keccak/Keccak/Keccak-256/keccak_round_constants_gen.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package std_logic_arith
+-- Loading package keccak_globals
+-- Compiling entity keccak_round_constants_gen
+-- Compiling architecture rtl of keccak_round_constants_gen
+
+} {} {}} I:/Keccak/Keccak/Keccak-256/keccak.vhd {1 {vcom -work work -2002 -explicit I:/Keccak/Keccak/Keccak-256/keccak.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package std_logic_arith
+-- Loading package keccak_globals
+-- Compiling entity keccak
+-- Compiling architecture rtl of keccak
+
+} {} {}} I:/Keccak/Keccak/Keccak-256/tb_keccak.vhd {1 {vcom -work work -2002 -explicit I:/Keccak/Keccak/Keccak-256/tb_keccak.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package std_logic_arith
+-- Loading package keccak_globals
+-- Loading package std_logic_textio
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity keccak_tb
+-- Compiling architecture tb of keccak_tb
+
+} {} {}} I:/Keccak/Keccak/Keccak-256/keccak_buffer.vhd {1 {vcom -work work -2002 -explicit I:/Keccak/Keccak/Keccak-256/keccak_buffer.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package std_logic_arith
+-- Loading package keccak_globals
+-- Compiling entity keccak_buffer
+-- Compiling architecture rtl of keccak_buffer
+
+} {} {}}

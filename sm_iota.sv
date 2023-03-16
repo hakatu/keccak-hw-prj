@@ -1,0 +1,103 @@
+/* Keccak Core
+	Module: stepmapping_iota
+	Date: 21/12/2021
+	Author: Tran Cong Tien
+	ID: 1810580
+*/
+/*
+`include"round_constant.sv"
+import keccak_pkg::plane;
+import keccak_pkg::state;
+import keccak_pkg::N;
+
+module	sm_iota(iota_in, iota_round_number, iota_out);
+	input	state	iota_in;
+	input	[4:0]	iota_round_number;
+	output	state	iota_out;
+	
+	integer x,y;
+
+always_comb
+begin
+	for (y = 0; y < 5; y++)
+		for (x = 0; x < 5; x++)
+			begin
+				if (x == 0 && y == 0) iota_out[y][x] = iota_in[y][x] ^ round_constant(iota_round_number);
+				else		      iota_out[y][x] = iota_in[y][x];
+			end
+end
+endmodule
+
+
+module sm_theta_iota_tb();
+state theta_in;
+logic	[4:0] iota_round_number;
+state iota_out;
+
+state theta_out_rho_in, rho_out_pi_in, pi_out_chi_in, chi_out_iota_in;
+
+sm_theta theta(theta_in, theta_out_rho_in);
+sm_rho rho(theta_out_rho_in, rho_out_pi_in);
+sm_pi pi (rho_out_pi_in, pi_out_chi_in);
+sm_chi chi(pi_out_chi_in, chi_out_iota_in);
+sm_iota iota(chi_out_iota_in, iota_round_number, iota_out);
+
+initial 
+begin
+iota_round_number = 0;
+theta_in = {{64'd0,64'd0,64'd0,64'd0,64'd0},{64'd0,64'd0,64'd0,64'h8000000000000000,64'd0},{64'd0,64'd0,64'd0,64'd0,64'd0},{64'd0,64'd0,64'd0,64'd0,64'd0},{64'd0,64'd0,64'd6,64'd0,64'd0}};
+end
+endmodule
+*/
+
+
+import keccak_pkg::plane;
+import keccak_pkg::state;
+import keccak_pkg::N;
+
+module	sm_iota(iota_in, iota_round_number, iota_out);
+	input	state	iota_in;
+	input	[4:0]	iota_round_number;
+	output	state	iota_out;
+	
+	logic	[63:0]  round_constant;
+	
+	integer x,y;
+
+always_comb
+begin
+	for (y = 0; y < 5; y++)
+		for (x = 0; x < 5; x++)
+			begin
+				case(iota_round_number)
+            5'b00000 : round_constant = 64'h0000_0000_0000_0001;
+            5'b00001 : round_constant = 64'h0000_0000_0000_8082;
+            5'b00010 : round_constant = 64'h8000_0000_0000_808A;
+            5'b00011 : round_constant = 64'h8000_0000_8000_8000;
+            5'b00100 : round_constant = 64'h0000_0000_0000_808B;
+            5'b00101 : round_constant = 64'h0000_0000_8000_0001;
+            5'b00110 : round_constant = 64'h8000_0000_8000_8081;
+            5'b00111 : round_constant = 64'h8000_0000_0000_8009;
+            5'b01000 : round_constant = 64'h0000_0000_0000_008A;
+            5'b01001 : round_constant = 64'h0000_0000_0000_0088;
+            5'b01010 : round_constant = 64'h0000_0000_8000_8009;
+            5'b01011 : round_constant = 64'h0000_0000_8000_000A;
+            5'b01100 : round_constant = 64'h0000_0000_8000_808B;
+            5'b01101 : round_constant = 64'h8000_0000_0000_008B;
+            5'b01110 : round_constant = 64'h8000_0000_0000_8089;
+            5'b01111 : round_constant = 64'h8000_0000_0000_8003;
+            5'b10000 : round_constant = 64'h8000_0000_0000_8002;
+            5'b10001 : round_constant = 64'h8000_0000_0000_0080;
+            5'b10010 : round_constant = 64'h0000_0000_0000_800A;
+            5'b10011 : round_constant = 64'h8000_0000_8000_000A;
+            5'b10100 : round_constant = 64'h8000_0000_8000_8081;
+            5'b10101 : round_constant = 64'h8000_0000_0000_8080;
+            5'b10110 : round_constant = 64'h0000_0000_8000_0001;
+            5'b10111 : round_constant = 64'h8000_0000_8000_8008;	
+            default : round_constant = '0;
+				endcase
+				if (x == 0 && y == 0) iota_out[y][x] = iota_in[y][x] ^ round_constant;
+				else		      iota_out[y][x] = iota_in[y][x];
+			end
+end
+endmodule 
