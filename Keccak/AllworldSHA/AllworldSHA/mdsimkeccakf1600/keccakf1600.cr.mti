@@ -5,12 +5,21 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	chi
 
-} {} {}} I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/rho.sv {1 {vlog -work work -sv I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/rho.sv
+} {} {}} I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/keccak_f_1600.sv {0 {vlog -work work -sv I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/keccak_f_1600.sv
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module rho
+-- Compiling module keccak_f_1600
+** Error: I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/keccak_f_1600.sv(27): Checker 'theta' not found.  Instantiation 'theta_inst' must be of a visible checker.
+** Error: I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/keccak_f_1600.sv(32): Checker 'rho' not found.  Instantiation 'rho_inst' must be of a visible checker.
+** Error: I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/keccak_f_1600.sv(37): Checker 'pi' not found.  Instantiation 'pi_inst' must be of a visible checker.
+** Error: I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/keccak_f_1600.sv(42): Checker 'chi' not found.  Instantiation 'chi_inst' must be of a visible checker.
+** Error: I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/keccak_f_1600.sv(48): Checker 'iota' not found.  Instantiation 'iota_inst' must be of a visible checker.
+
+} {4.0 9.0} {}} I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/iota.sv {1 {vlog -work work -sv I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/iota.sv
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module iota
 
 Top level modules:
-	rho
+	iota
 
 } {} {}} I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/pi.sv {1 {vlog -work work -sv I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/pi.sv
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -19,26 +28,12 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	pi
 
-} {} {}} I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/iota.sv {1 {vlog -work work -sv I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/iota.sv
+} {} {}} I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/rho.sv {1 {vlog -work work -sv I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/rho.sv
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module iota
+-- Compiling module rho
 
 Top level modules:
-	iota
-
-} {} {}} I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/tb_keccak_f_1600.sv {1 {vlog -work work -sv I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/tb_keccak_f_1600.sv
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module keccak_f_1600_tb
-
-Top level modules:
-	keccak_f_1600_tb
-
-} {} {}} I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/theta.sv {1 {vlog -work work -sv I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/theta.sv
-Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
--- Compiling module theta
-
-Top level modules:
-	theta
+	rho
 
 } {} {}} I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/tb_iota.sv {1 {vlog -work work -sv I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/tb_iota.sv
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
@@ -46,5 +41,12 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 
 Top level modules:
 	tb_iota
+
+} {} {}} I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/theta.sv {1 {vlog -work work -sv I:/Keccak/keccak-hw-prj/Keccak/AllworldSHA/theta.sv
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module theta
+
+Top level modules:
+	theta
 
 } {} {}}
