@@ -1,0 +1,5 @@
+# Compile of keccak_globals.vhd was successful.
+# Compile of keccak_round.vhd was successful.
+# Compile of keccak_round_constants_gen.sv was successful.
+# Compile of tb_keccak_round.sv was successful.
+# 4 compiles, 0 failed with no errors.

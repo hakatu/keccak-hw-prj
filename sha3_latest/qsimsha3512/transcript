@@ -1,0 +1,161 @@
+# Compile of f_permutation.v was successful.
+# Compile of padder.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# 7 compiles, 0 failed with no errors.
+vsim -vopt -voptargs=+acc work.test_sha3_256
+# vsim -vopt -voptargs="+acc" work.test_sha3_256 
+# Start time: 19:18:38 on Mar 20,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading work.test_sha3_256(fast)
+# Loading sv_std.std
+# Loading work.sha3_256(fast)
+# Loading work.padder(fast)
+# Loading work.padder2(fast)
+# Loading work.f_permutation(fast)
+# Loading work.rconst2in1(fast)
+# Loading work.round2in1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_256.v Line: 23
+# ** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (4) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 69
+# ** Warning: (vsim-3015) [PCDPC] - Port size (576) does not match connection size (1088) for port 'out'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 69
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder2.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_/p0 File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v Line: 71
+# ** Warning: (vsim-3015) [PCDPC] - Port size (576) does not match connection size (1088) for port 'in'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v(19).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/f_permutation_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 72
+run -all
+# FAILED: Expected d8a1e242b946a65fd7222d6726b27411f9c1819f1e4fde57fe72887e54aabbe2, got xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+add wave -position insertpoint sim:/test_sha3_256/*
+add wave -position insertpoint sim:/test_sha3_256/check/*
+# Break key hit
+# Break in Module test_sha3_256 at I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_256.v line 79
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.test_sha3_256(fast)
+# Loading work.sha3_256(fast)
+# Loading work.padder(fast)
+# Loading work.padder2(fast)
+# Loading work.f_permutation(fast)
+# Loading work.rconst2in1(fast)
+# Loading work.round2in1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_256.v Line: 23
+# ** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (4) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 69
+# ** Warning: (vsim-3015) [PCDPC] - Port size (576) does not match connection size (1088) for port 'out'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 69
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder2.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_/p0 File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v Line: 71
+# ** Warning: (vsim-3015) [PCDPC] - Port size (576) does not match connection size (1088) for port 'in'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v(19).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/f_permutation_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 72
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.test_sha3_256(fast)
+# Loading work.sha3_256(fast)
+# Loading work.padder(fast)
+# Loading work.padder2(fast)
+# Loading work.f_permutation(fast)
+# Loading work.rconst2in1(fast)
+# Loading work.round2in1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_256.v Line: 23
+# ** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (4) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 69
+# ** Warning: (vsim-3015) [PCDPC] - Port size (576) does not match connection size (1088) for port 'out'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 69
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder2.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_/p0 File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v Line: 71
+# ** Warning: (vsim-3015) [PCDPC] - Port size (576) does not match connection size (1088) for port 'in'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v(19).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/f_permutation_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 72
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.test_sha3_256(fast)
+# Loading work.sha3_256(fast)
+# Loading work.padder(fast)
+# Loading work.padder2(fast)
+# Loading work.f_permutation(fast)
+# Loading work.rconst2in1(fast)
+# Loading work.round2in1(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv(6).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_256.v Line: 23
+# ** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (4) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 69
+# ** Warning: (vsim-3015) [PCDPC] - Port size (576) does not match connection size (1088) for port 'out'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v(21).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 69
+# ** Warning: (vsim-3015) [PCDPC] - Port size (4) does not match connection size (3) for port 'byte_num'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder2.sv(1).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/padder_/p0 File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v Line: 71
+# ** Warning: (vsim-3015) [PCDPC] - Port size (576) does not match connection size (1088) for port 'in'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v(19).
+#    Time: 0 ps  Iteration: 0  Instance: /test_sha3_256/uut/f_permutation_ File: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv Line: 72
+run -all
+# FAILED: Expected d8a1e242b946a65fd7222d6726b27411f9c1819f1e4fde57fe72887e54aabbe2, got xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# Compile of f_permutation.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# 6 compiles, 1 failed with no errors.
+# Compile of f_permutation.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# 6 compiles, 1 failed with no errors.
+# Compile of f_permutation.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# Compile of padder256.v was successful.
+# 7 compiles, 0 failed with no errors.
+# Compile of f_permutation.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# Compile of padder256.v was successful.
+# 7 compiles, 0 failed with no errors.
+# Break key hit
+# Simulation stop requested.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Error: I:/Keccak/keccak-hw-prj/sha3_latest/qsimsha3256/padder256.v(51): Module 'padder1' is not defined.
+#  For instance 'p0' at path 'test_sha3_256.uut.padder_'
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+vsim -vopt -voptargs=+acc work.test_sha3_256
+# vsim -vopt -voptargs="+acc" work.test_sha3_256 
+# Start time: 19:18:38 on Mar 20,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: I:/Keccak/keccak-hw-prj/sha3_latest/qsimsha3256/padder256.v(51): Module 'padder1' is not defined.
+#  For instance 'p0' at path 'test_sha3_256.uut.padder_'
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=0.
+# Error loading design
+# End time: 19:31:47 on Mar 20,2023, Elapsed time: 0:13:09
+# Errors: 2, Warnings: 1
+# Compile of f_permutation.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# Compile of padder256.v was successful.
+# 7 compiles, 0 failed with no errors.
+# Break key hit
+# Break key hit
+# Break key hit
+# Break key hit
+# Break key hit

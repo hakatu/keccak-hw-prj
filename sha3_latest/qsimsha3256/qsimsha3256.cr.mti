@@ -1,0 +1,72 @@
+I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder2.v {2 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder2.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module test_padder2
+** Warning: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder2.v(57): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+Top level modules:
+	test_padder2
+
+} {} {}} I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_256.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_256.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module test_sha3_256
+
+Top level modules:
+	test_sha3_256
+
+} {} {}} I:/Keccak/keccak-hw-prj/sha3_latest/qsimsha3256/padder256.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/sha3_latest/qsimsha3256/padder256.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module padder256
+
+Top level modules:
+	padder256
+
+} {} {}} I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_f_permutation.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_f_permutation.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module test_f_permutation
+
+Top level modules:
+	test_f_permutation
+
+} {} {}} I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/round2in1.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/round2in1.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module round2in1
+
+Top level modules:
+	round2in1
+
+} {} {}} I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/rconst2in1.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/rconst2in1.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module rconst2in1
+
+Top level modules:
+	rconst2in1
+
+} {} {}} I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module f_permutation
+
+Top level modules:
+	f_permutation
+
+} {} {}} I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder2.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder2.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module padder2
+
+Top level modules:
+	padder2
+
+} {} {}} I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_256.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module sha3_256
+
+Top level modules:
+	sha3_256
+
+} {} {}} I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_rconst2in1.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_rconst2in1.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module test_rconst2in1
+
+Top level modules:
+	test_rconst2in1
+
+} {} {}}

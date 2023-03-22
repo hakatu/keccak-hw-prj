@@ -1,0 +1,126 @@
+# Compile of f_permutation.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# Compile of padder256.v was successful.
+# Compile of test_f_permutation.v was successful.
+# Compile of test_padder.v was successful.
+# Compile of test_rconst2in1.v was successful.
+# Compile of test_padder2.v was successful with warnings.
+# 11 compiles, 0 failed with no errors.
+# Compile of f_permutation.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# Compile of padder256.v was successful.
+# Compile of test_f_permutation.v was successful.
+# Compile of test_padder.v was successful.
+# Compile of test_rconst2in1.v was successful.
+# Compile of test_padder2.v was successful with warnings.
+# Compile of test_padder256.v was successful.
+# 12 compiles, 0 failed with no errors.
+# Compile of f_permutation.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# Compile of padder256.v was successful.
+# Compile of test_f_permutation.v was successful.
+# Compile of test_rconst2in1.v was successful.
+# Compile of test_padder2.v was successful with warnings.
+# Compile of test_padder256.v was successful.
+# 11 compiles, 1 failed with no errors.
+vsim work.test_padder256
+# vsim work.test_padder256 
+# Start time: 20:50:34 on Mar 20,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(70): (vopt-7063) Failed to find 'check' in hierarchical name 'check'.
+#         Region: test_padder256
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
+# Error loading design
+# End time: 20:50:35 on Mar 20,2023, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 6
+# Compile of f_permutation.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# Compile of padder256.v was successful.
+# Compile of test_f_permutation.v was successful.
+# Compile of test_rconst2in1.v was successful.
+# Compile of test_padder2.v was successful with warnings.
+# Compile of test_padder256.v was successful.
+# 11 compiles, 0 failed with no errors.
+vsim work.test_padder256
+# vsim work.test_padder256 
+# Start time: 20:51:02 on Mar 20,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(24): (vopt-2912) Port 'clk' not found in module 'padder2' (1st connection).
+# ** Error (suppressible): I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(24): (vopt-2912) Port 'reset' not found in module 'padder2' (2nd connection).
+# ** Error (suppressible): I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(24): (vopt-2912) Port 'in_ready' not found in module 'padder2' (4th connection).
+# ** Error (suppressible): I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(24): (vopt-2912) Port 'is_last' not found in module 'padder2' (5th connection).
+# ** Error (suppressible): I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(24): (vopt-2912) Port 'buffer_full' not found in module 'padder2' (7th connection).
+# ** Warning: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(24): (vopt-2241) Connection width does not match width of port 'out'. The port definition is at: I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder2.sv(1).
+# ** Error (suppressible): I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(24): (vopt-2912) Port 'out_ready' not found in module 'padder2' (9th connection).
+# ** Error (suppressible): I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(24): (vopt-2912) Port 'f_ack' not found in module 'padder2' (10th connection).
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=7, Warnings=1.
+# Error loading design
+# End time: 20:51:02 on Mar 20,2023, Elapsed time: 0:00:00
+# Errors: 7, Warnings: 3
+# Compile of f_permutation.v was successful.
+# Compile of padder2.sv was successful.
+# Compile of rconst2in1.v was successful.
+# Compile of round2in1.v was successful.
+# Compile of sha3_256.sv was successful.
+# Compile of test_sha3_256.v was successful.
+# Compile of padder256.v was successful.
+# Compile of test_f_permutation.v was successful.
+# Compile of test_rconst2in1.v was successful.
+# Compile of test_padder2.v was successful with warnings.
+# Compile of test_padder256.v was successful.
+# 11 compiles, 0 failed with no errors.
+vsim work.test_padder256
+# vsim work.test_padder256 
+# Start time: 20:51:22 on Mar 20,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading work.test_padder256(fast)
+# Loading sv_std.std
+# Loading work.padder2(fast)
+run -all
+# out:860000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080 wish:010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080
+# E
+# ** Note: $finish    : I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(177)
+#    Time: 440 ns  Iteration: 0  Instance: /test_padder256
+# 1
+# Break at I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v line 177
+add wave -position insertpoint sim:/test_padder256/*
+# ** UI-Msg: (vish-4014) No objects found matching '/test_padder256/*'.
+add wave -position insertpoint sim:/test_padder256/uut/*
+# ** UI-Msg: (vish-4014) No objects found matching '/test_padder256/uut/*'.
+vsim work.test_padder256 -voptargs=+acc
+# End time: 20:52:18 on Mar 20,2023, Elapsed time: 0:00:56
+# Errors: 0, Warnings: 2
+# vsim work.test_padder256 -voptargs="+acc" 
+# Start time: 20:52:18 on Mar 20,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading work.test_padder256(fast)
+# Loading work.padder256(fast)
+# Loading sv_std.std
+# Loading work.padder2(fast)
+add wave -position insertpoint sim:/test_padder256/*
+add wave -position insertpoint sim:/test_padder256/uut/*
+run -all
+# out:860000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080 wish:010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000080
+# E
+# ** Note: $finish    : I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v(177)
+#    Time: 440 ns  Iteration: 0  Instance: /test_padder256
+# 1
+# Break in Task error at I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_padder256.v line 177

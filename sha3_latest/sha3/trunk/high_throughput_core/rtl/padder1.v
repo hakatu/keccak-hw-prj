@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-module padder1(in, byte_num, out);
+module padder1(in, byte_num, out); //cho SHA3-512
     input      [63:0] in;
     input      [2:0]  byte_num;
     output reg [63:0] out;

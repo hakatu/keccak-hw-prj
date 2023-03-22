@@ -1,0 +1,188 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+!s11f vlog 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dI:/Keccak/keccak-hw-prj/Keccak/qsimkeccakroundmixvvhd
+T_opt
+!s110 1679314473
+V8WVLf_h@042e2`g_LOQ3N2
+Z2 04 13 4 work test_sha3_512 fast 0
+=1-047c164ff99e-64184e27-3dd-22c8
+Z3 !s124 OEM10U7 
+o-quiet -auto_acc_if_foreign -work work
+Z4 tCvgOpt 0
+n@_opt
+Z5 OL;O;2021.2;73
+R1
+T_opt1
+!s110 1679314525
+Vm7zL8Aijk6aKiGohGC^j^3
+R2
+=1-047c164ff99e-64184e5d-1bb-1ee0
+R3
+o-quiet -auto_acc_if_foreign -work work +acc
+R4
+n@_opt1
+R5
+vf_permutation
+Z6 !s110 1679314462
+!i10b 1
+!s100 RSYPzA^5R]9lH0WgFE3?73
+I=XjbNM:gz>46Y:O<lQ<=G0
+Z7 dI:/Keccak/keccak-hw-prj/sha3_latest/qsimsha3512
+Z8 w1359097870
+8I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v
+FI:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v
+!i122 0
+L0 19 51
+Z9 VDg1SIo80bB@j0V0VzS_@n1
+Z10 OL;L;2021.2;73
+r1
+!s85 0
+31
+Z11 !s108 1679314462.000000
+!s107 I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/f_permutation.v|
+!i113 0
+Z12 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R4
+vpadder
+R6
+!i10b 1
+!s100 HUR1:`^Boe2^FdJS^`aOS3
+I7Y2`j1:KUj3D4[oGkTKN?0
+R7
+R8
+8I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v
+FI:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v
+!i122 1
+L0 21 68
+R9
+R10
+r1
+!s85 0
+31
+R11
+!s107 I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder.v|
+!i113 0
+R12
+R4
+vpadder1
+R6
+!i10b 1
+!s100 m;6Wl^XCg8jNabjUY8j7D2
+I_[]k5K64EXo4VHS]NENkK3
+R7
+w1679313085
+8I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder1.v
+FI:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder1.v
+!i122 2
+L0 17 30
+R9
+R10
+r1
+!s85 0
+31
+R11
+!s107 I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder1.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/padder1.v|
+!i113 0
+R12
+R4
+vrconst2in1
+R6
+!i10b 1
+!s100 H6CC8UolAA_GHJ[Xc5UQB0
+I1^YiU5@Wj:ULWTZzobb=o1
+R7
+R8
+8I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/rconst2in1.v
+FI:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/rconst2in1.v
+!i122 3
+L0 18 29
+R9
+R10
+r1
+!s85 0
+31
+R11
+!s107 I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/rconst2in1.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/rconst2in1.v|
+!i113 0
+R12
+R4
+vround2in1
+R6
+!i10b 1
+!s100 9bzj2JTS_1d?SY5]cM@nd1
+IPMkk9fAZa6B9l[5cSzT8L1
+R7
+R8
+8I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/round2in1.v
+FI:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/round2in1.v
+!i122 4
+L0 25 252
+R9
+R10
+r1
+!s85 0
+31
+R11
+!s107 I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/round2in1.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/round2in1.v|
+!i113 0
+R12
+R4
+vsha3_512
+R6
+!i10b 1
+!s100 CGRk`]`JSVZ3OCk?ol1U@2
+I_jHDB2UVeE5Pmd@L2fKES3
+R7
+w1679312993
+8I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_512.v
+FI:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_512.v
+!i122 5
+L0 26 68
+R9
+R10
+r1
+!s85 0
+31
+R11
+!s107 I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_512.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/rtl/sha3_512.v|
+!i113 0
+R12
+R4
+vtest_sha3_512
+R6
+!i10b 1
+!s100 _HDX8BL27S2dLdVA94EKD2
+IBNmVkSIdHMch985K;OhSd2
+R7
+w1679314362
+8I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_512.v
+FI:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_512.v
+!i122 6
+L0 20 221
+R9
+R10
+r1
+!s85 0
+31
+R11
+!s107 I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_512.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|I:/Keccak/keccak-hw-prj/sha3_latest/sha3/trunk/high_throughput_core/testbench/test_sha3_512.v|
+!i113 0
+R12
+R4
