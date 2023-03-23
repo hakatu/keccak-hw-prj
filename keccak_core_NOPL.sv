@@ -4,9 +4,9 @@
 	Author: Tran Cong Tien
 	ID: 1810580
 */
-import keccak_pkg::plane;
-import keccak_pkg::state;
-import keccak_pkg::N;
+//import keccak_pkg::plane;
+//import keccak_pkg::state;
+//import keccak_pkg::N;
 
 module keccak_core_NOPL(clk, rst_n, start, dt_i, cmode, last_block, d, valid, finish_hash, dt_o_hash, ready);
 	input		clk, rst_n;
