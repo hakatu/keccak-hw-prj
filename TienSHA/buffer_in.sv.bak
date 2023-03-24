@@ -1,0 +1,167 @@
+/* Keccak Core
+	Module: buffer in
+	Date: 31/12/2021
+	Author: Tran Cong Tien
+	ID: 1810580
+*/
+
+module buffer_in(clk, rst_n, dt_i, cmode, last, valid, dt_o, buff_full, first, en_counter);
+	input		clk;
+	input		rst_n;
+	input		[2:0] cmode;
+	input		last;
+	input		valid;
+	input		[63:0] dt_i;
+	input		en_counter;
+	output	logic	[1343:0] dt_o;
+	output	logic	buff_full;
+	output  logic	first;
+
+	logic 		[7:0] mem [0:167];
+	logic		[7:0] mode [0:5];
+	logic		stop_read;
+	logic		[3:0] first_block;
+	integer 	counter;
+	parameter 	sha3_224_mode = 0;
+	parameter	sha3_256_mode = 1;
+	parameter	sha3_384_mode = 2;
+	parameter	sha3_512_mode = 3;
+	parameter	shake_128_mode = 4;
+	parameter	shake_256_mode = 5;
+	
+/*
+assign mode[0] = 143;
+assign mode[1] = 135;
+assign mode[2] = 103;
+assign mode[3] = 71;
+assign mode[4] = 167;
+assign mode[5] = 135;
+*/
+assign mode[0] = 144;
+assign mode[1] = 136;
+assign mode[2] = 104;
+assign mode[3] = 72;
+assign mode[4] = 168;
+assign mode[5] = 136;
+
+integer i;
+
+always_ff @(posedge clk or negedge rst_n)
+begin
+	if (!rst_n) 	
+		begin	
+			buff_full <= 0; 
+			counter = 0; 
+			stop_read <= 0; 
+			first_block = 0;
+			first <= 1;
+			for (i = 0; i <= 167; i++) mem[i] <= 0;
+		end
+	else 
+	begin	
+		//if (buff_full) begin buff_full <= 0; counter = 0; end
+		
+		if (buff_full && !en_counter) begin buff_full <= 0; counter = 0; end
+		
+		if (en_counter && counter == 0) for (i = 0; i <= 167; i++) mem[i] <= 0; //update : 16/1/2022
+		//if (en_counter) for (i = 0; i <= 167; i++) mem[i] <= 0;
+		if (valid && !buff_full) begin
+		mem[counter]  	<= dt_i[63:56];
+		mem[counter+1]  <= dt_i[55:48];
+		mem[counter+2]  <= dt_i[47:40];
+		mem[counter+3]	<= dt_i[39:32];
+		mem[counter+4]  <= dt_i[31:24];
+		mem[counter+5]  <= dt_i[23:16];
+		mem[counter+6]  <= dt_i[15:8];
+		mem[counter+7]	<= dt_i[7:0];
+		counter = counter + 8; 
+		if (mode[cmode] == counter) begin buff_full <= 1; first_block = first_block + 1; end //counter <= 0; end
+		if (last) 
+			begin
+				/*for (i = counter; i <= mode[cmode]; i++)
+					begin
+						if ( i == counter) begin if (cmode == sha3_224_mode || cmode == sha3_256_mode || cmode == sha3_384_mode || cmode == sha3_512_mode) mem[i] <= 8'h06; else mem[i] <= 8'h1f; end
+						else if (i == mode[cmode]-1) mem[i] <= 8'h80;
+						else mem[i] <= 0;	
+					end */
+				if (cmode == sha3_224_mode || cmode == sha3_256_mode || cmode == sha3_384_mode || cmode == sha3_512_mode) mem[counter] <= 8'h06; else mem[counter] <= 8'h1f; 	
+				mem[mode[cmode]-1] <= 8'h80; 
+				buff_full <= 1; 
+				counter = 0;
+				first_block = first_block + 1;
+				/*if (first_block == 1) first <= 1; 
+				else first <= 0;*/
+			end
+		if (first_block == 1) first <= 1; else first <= 0;
+		end
+	end
+end
+
+always_comb
+begin
+	dt_o[63:0]      =	{mem[7], mem[6], mem[5], mem[4], mem[3], mem[2], mem[1], mem[0]}; 
+	dt_o[127:64]    =	{mem[15], mem[14], mem[13], mem[12], mem[11], mem[10], mem[9], mem[8]}; 
+	dt_o[191:128]   = 	{mem[23], mem[22], mem[21], mem[20], mem[19], mem[18], mem[17], mem[16]};
+	dt_o[255:192]   =	{mem[31], mem[30], mem[29], mem[28], mem[27], mem[26], mem[25], mem[24]};
+	dt_o[319:256]   =	{mem[39], mem[38], mem[37], mem[36], mem[35], mem[34], mem[33], mem[32]};
+	dt_o[383:320]   =	{mem[47], mem[46], mem[45], mem[44], mem[43], mem[42], mem[41], mem[40]};
+	dt_o[447:384]   =	{mem[55], mem[54], mem[53], mem[52], mem[51], mem[50], mem[49], mem[48]};
+	dt_o[511:448]   =	{mem[63], mem[62], mem[61], mem[60], mem[59], mem[58], mem[57], mem[56]};
+	dt_o[575:512]   =	{mem[71], mem[70], mem[69], mem[68], mem[67], mem[66], mem[65], mem[64]};
+	dt_o[639:576]   =	{mem[79], mem[78], mem[77], mem[76], mem[75], mem[74], mem[73], mem[72]};
+	dt_o[703:640]   =	{mem[87], mem[86], mem[85], mem[84], mem[83], mem[82], mem[81], mem[80]}; 
+	dt_o[767:704]   =	{mem[95], mem[94], mem[93], mem[92], mem[91], mem[90], mem[89], mem[88]}; 
+	dt_o[831:768]   =	{mem[103], mem[102], mem[101], mem[100], mem[99], mem[98], mem[97], mem[96]}; 
+	dt_o[895:832]   =	{mem[111], mem[110], mem[109], mem[108], mem[107], mem[106], mem[105], mem[104]}; 
+	dt_o[959:896]   =	{mem[119], mem[118], mem[117], mem[116], mem[115], mem[114], mem[113], mem[112]}; 
+	dt_o[1023:960]  =	{mem[127], mem[126], mem[125], mem[124], mem[123], mem[122], mem[121], mem[120]}; 
+	dt_o[1087:1024] =	{mem[135], mem[134], mem[133], mem[132], mem[131], mem[130], mem[129], mem[128]}; 
+	dt_o[1151:1088] =	{mem[143], mem[142], mem[141], mem[140], mem[139], mem[138], mem[137], mem[136]}; 
+	dt_o[1215:1152] =	{mem[151], mem[150], mem[149], mem[148], mem[147], mem[146], mem[145], mem[144]}; 
+	dt_o[1279:1216] =	{mem[159], mem[158], mem[157], mem[156], mem[155], mem[154], mem[153], mem[152]}; 
+	dt_o[1343:1280] =  	{mem[167], mem[166], mem[165], mem[164], mem[163], mem[162], mem[161], mem[160]}; 
+/*	case (cmode)
+	sha3_224_mode: 		dt_o[1343:1152] = 0;
+	sha3_256_mode: 		dt_o[1343:1088] = 0;
+	sha3_384_mode:		dt_o[1343:832] = 0;
+	sha3_512_mode:		dt_o[1343:576] = 0;
+	//shake_128_mode
+	shake_256_mode:		dt_o[1343:1088] = 0;
+	default:		dt_o[1343:1088] = 0;
+	endcase 	*/
+end 
+
+endmodule
+
+
+module buffer_in_test();
+	logic		clk;
+	logic		rst_n;
+	logic		[2:0] cmode;
+	logic		last;
+	logic		valid;
+	logic		[63:0] dt_i;
+	logic		[1343:0] dt_o;
+	logic		buff_full;
+	logic		first;
+
+buffer_in bf_in(clk, rst_n, dt_i, cmode, last, valid, dt_o, buff_full, first);
+
+initial clk = 0;
+always #5 clk = !clk;
+initial 
+begin
+rst_n = 0; cmode = 1; valid = 1;
+//dt_i = 128'h00112233_44556677_8899aabb_ccddeeff; 
+dt_i = 63'h0;
+last = 0; #7;
+rst_n = 1; #3; 
+#10; 
+last = 1;  
+#10 last = 0;
+#100;
+$stop;
+end
+
+endmodule
+

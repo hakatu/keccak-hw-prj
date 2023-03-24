@@ -1,0 +1,45 @@
+/* Keccak Core
+	Module: step mapping
+	Date: 21/12/2021
+	Author: Tran Cong Tien
+	ID: 1810580
+*/
+
+import keccak_pkg::plane;
+import keccak_pkg::state;
+import keccak_pkg::N;
+module step_mapping(in, round_num, out);
+	input 	state in;
+	input	[4:0] round_num;
+	output 	state out;
+
+	state	theta_in, theta_out, rho_in, rho_out, chi_in, chi_out, pi_in, pi_out, iota_in, iota_out;
+	
+assign	theta_in = in;
+assign 	rho_in = theta_out;
+assign 	pi_in = rho_out;
+assign	chi_in = pi_out;
+assign  iota_in = chi_out;
+assign	out = iota_out;
+sm_theta theta(theta_in, theta_out);
+sm_rho	 rho(rho_in, rho_out);
+sm_pi	 pi(pi_in, pi_out);
+sm_chi 	 chi(chi_in, chi_out);
+sm_iota	 iota(iota_in,round_num,iota_out);
+endmodule
+
+
+module step_mapping_tb();
+state in;
+logic [4:0] round_num;
+state out;
+
+step_mapping step_mapping(in, round_num, out);
+
+initial 
+begin
+round_num = 0;
+in = {{64'd0,64'd0,64'd0,64'd0,64'd0},{64'd0,64'd0,64'd0,64'h8000000000000000,64'd0},{64'd0,64'd0,64'd0,64'd0,64'd0},{64'd0,64'd0,64'd0,64'd0,64'd0},{64'd0,64'd0,64'd6,64'd0,64'd0}};
+end
+endmodule
+	

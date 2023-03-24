@@ -1,0 +1,58 @@
+/* Keccak Core
+	Module: transformation round
+	Date: 3/1/2022
+	Author: Tran Cong Tien
+	ID: 1810580
+*/
+import keccak_pkg::plane;
+import keccak_pkg::state;
+import keccak_pkg::N;
+module pipeline_transformation_round(clk, rst_n, tr_in, round_num, tr_out, finish);
+	input	clk;
+	input	rst_n;
+	input   state	tr_in;
+	input	[4:0] round_num;
+	output  state   tr_out;
+	output	logic finish;
+
+	state	sm_in, sm_out, sm_out_ff, theta_in, theta_out, pi_out_ff, rho_in, rho_out, chi_in, chi_out, pi_in, pi_out, iota_in, iota_out;
+
+assign sm_in = (round_num == 0) ? tr_in : sm_out_ff; 
+ 
+assign	theta_in = sm_in;
+assign 	rho_in = theta_out;
+assign 	pi_in = rho_out;
+//assign	chi_in = pi_out_ff;
+assign  chi_in = pi_out;
+assign  iota_in = chi_out;
+assign	out = iota_out;
+sm_theta theta(theta_in, theta_out);
+
+always_ff @(negedge clk or negedge rst_n)
+begin
+	if (!rst_n) pi_out_ff <= 0;
+	else 	
+	pi_out_ff <= pi_out;
+end
+
+sm_rho	 rho(rho_in, rho_out);
+sm_pi	 pi(pi_in, pi_out);
+sm_chi 	 chi(chi_in, chi_out);
+sm_iota	 iota(iota_in,round_num,iota_out);
+assign 	sm_out = iota_out;
+
+assign finish = (round_num == 24);
+assign tr_out = sm_out_ff;
+
+always_ff @(posedge clk or negedge rst_n)
+begin
+	if (!rst_n) sm_out_ff <= 0;
+	else 
+		begin
+			sm_out_ff <= sm_out;
+		end
+end
+
+endmodule
+
+

@@ -1,0 +1,62 @@
+/* Keccak Core
+	Module: transformation round
+	Date: 3/1/2022
+	Author: Tran Cong Tien
+	ID: 1810580
+*/
+import keccak_pkg::plane;
+import keccak_pkg::state;
+import keccak_pkg::N;
+module transformation_round(clk, rst_n, tr_in, round_num, tr_out, finish);
+	input	clk;
+	input	rst_n;
+	input   state	tr_in;
+	input	[4:0] round_num;
+	output  state   tr_out;
+	output	logic finish;
+
+	state	sm_in, sm_out, sm_out_ff;
+
+assign sm_in = (round_num == 0) ? tr_in : sm_out_ff;  
+step_mapping sm(sm_in, round_num, sm_out);
+assign finish = (round_num == 24);
+assign tr_out = sm_out_ff;
+
+always_ff @(posedge clk or negedge rst_n)
+begin
+	if (!rst_n) sm_out_ff <= 0;
+	else 
+		begin
+			sm_out_ff <= sm_out;
+		end
+end
+
+endmodule
+
+
+module transformation_round_tb();
+logic clk;
+logic rst_n;
+state tr_in;
+logic en_counter;
+state tr_out;
+logic finish;
+
+
+logic [4:0] round_num;
+
+counter counter(clk, rst_n, en_counter, round_num);
+transformation_round tr(clk, rst_n, tr_in, round_num, tr_out, finish);
+initial clk = 0;
+always #5 clk = !clk;
+initial 
+begin
+rst_n = 0;
+tr_in = {{64'd0,64'd0,64'd0,64'd0,64'd0},{64'd0,64'd0,64'd0,64'h8000000000000000,64'd0},{64'd0,64'd0,64'd0,64'd0,64'd0},{64'd0,64'd0,64'd0,64'd0,64'd0},{64'd0,64'd0,64'd6,64'd0,64'd0}};
+en_counter = 1;
+#7;
+rst_n = 1; 
+#1000;
+$stop;
+end
+endmodule
