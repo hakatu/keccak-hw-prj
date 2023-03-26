@@ -17,21 +17,27 @@ for index in range(0,num_test):
     int_mode = int(mode)
     if (int_mode==0):
         print ("The ", index + 1, " hash value is: ")
+        print ("Result is for SHA3-224")
         myKeccak.Keccak((test_len,char),1152,448,0x06,224,False) 
     elif (int_mode == 1):
         print ("The ",  index + 1, " hash value is: ")
+        print ("Result is for SHA-256")
         myKeccak.Keccak((test_len,char),1088,512,0x06,256,False) 
     elif (int_mode == 2):
         print ("The ",  index + 1, " hash value is: ")
+        print ("Result is for SHA3-384")
         myKeccak.Keccak((test_len,char),832,768,0x06,384,False)
     elif (int_mode == 3):
         print ("The ",  index + 1, " hash value is: ")
+        print ("Result is for SHA3-512")
         myKeccak.Keccak((test_len,char),576,1024,0x06,512,False)
     elif (int_mode == 4):
         print ("The ",  index + 1, " hash value is: ")
+        print ("Result is for SHAKE-512")
         myKeccak.Keccak((test_len,char),1344,256,0x1F,int(len_out),False)
     elif (int_mode == 5):
         print ("The ",  index + 1, " hash value is: ")
+        print ("Result is for SHAKE-256")
         myKeccak.Keccak((test_len,char),1088,512,0x1F,int(len_out),False)
 
 ### Compare 2 files

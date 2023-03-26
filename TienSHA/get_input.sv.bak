@@ -6,7 +6,7 @@
 */
 
 module get_input(pc, finish_hash, cmode, d, dt_o, last, No_test);
-	parameter	PC_LENGTH = 10;
+	parameter	PC_LENGTH = 32;
 	parameter	DATA_LENGTH = 64;
 	parameter	MEM_SIZE = 100000;
 	logic 		[DATA_LENGTH-1:0] buff [0:MEM_SIZE-1];
@@ -33,7 +33,7 @@ initial
 			$fclose(fw);
 */
 
-			$readmemh("C:/Users/DELL/Desktop/VLSI/Crypto/Keccak Core/KeccakInPython/Keccak_in.txt",buff);
+			$readmemh("I:/Keccak/TienSHA/KeccakInPython/Keccak_in.txt",buff);
 			No_test = buff[0]; 
 			//pc = 2;
 	end
@@ -58,7 +58,7 @@ endmodule
 
 
 module pc_counter(clk, rst_n, pc_in, pc_out);
-	parameter	PC_LENGTH = 10;
+	parameter	PC_LENGTH = 32;
 	input		clk;
 	input		rst_n;
 	input 		[PC_LENGTH-1:0] pc_in;
@@ -88,7 +88,7 @@ endmodule
 
 
 module readfile(clk, rst_n, finish_hash, cmode, d, dt_o, last, start, wr_en, first_test);
-	parameter 	PC_LENGTH = 10;
+	parameter 	PC_LENGTH = 32;
 	input 		clk;
 	input		rst_n;
 	input		finish_hash;
