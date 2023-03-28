@@ -1,0 +1,972 @@
+Analysis & Synthesis report for top_module
+Tue Mar 28 09:04:24 2023
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |top_module|control:control|current_state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: buffer_in:buff_in
+ 14. Parameter Settings for User Entity Instance: control:control
+ 15. Parameter Settings for User Entity Instance: register:re
+ 16. Parameter Settings for User Entity Instance: trunc:trunc
+ 17. Port Connectivity Checks: "mux2to1_1600bit:mux2to1"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+ 21. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2021  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Mar 28 09:04:24 2023       ;
+; Quartus Prime Version           ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                   ; top_module                                  ;
+; Top-level Entity Name           ; top_module                                  ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 4659                                        ;
+; Total pins                      ; 117                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; top_module         ; top_module         ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.41        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;  19.1%      ;
+;     Processor 3            ;  19.1%      ;
+;     Processor 4            ;   2.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-16        ;   0.1%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                            ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
+; ../VSX_module.sv                 ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/VSX_module.sv           ;         ;
+; ../trunc.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv                ;         ;
+; ../transformation_round.sv       ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/transformation_round.sv ;         ;
+; ../top_module.sv                 ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv           ;         ;
+; ../string_to_array.sv            ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/string_to_array.sv      ;         ;
+; ../step_mapping.sv               ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/step_mapping.sv         ;         ;
+; ../sm_theta.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/sm_theta.sv             ;         ;
+; ../sm_rho.sv                     ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/sm_rho.sv               ;         ;
+; ../sm_pi.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/sm_pi.sv                ;         ;
+; ../sm_iota.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/sm_iota.sv              ;         ;
+; ../sm_chi.sv                     ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/sm_chi.sv               ;         ;
+; ../register.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/register.sv             ;         ;
+; ../mux2to1_1600bit.sv            ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/mux2to1_1600bit.sv      ;         ;
+; ../keccak_pkg.sv                 ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/keccak_pkg.sv           ;         ;
+; ../counter.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/counter.sv              ;         ;
+; ../control.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/control.sv              ;         ;
+; ../buffer_in.sv                  ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv            ;         ;
+; ../array_to_string.sv            ; yes             ; User SystemVerilog HDL File  ; D:/ntthps/keccak-hw-prj/TienSHA/array_to_string.sv      ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 9895      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 13691     ;
+;     -- 7 input functions                    ; 4         ;
+;     -- 6 input functions                    ; 5916      ;
+;     -- 5 input functions                    ; 3482      ;
+;     -- 4 input functions                    ; 1517      ;
+;     -- <=3 input functions                  ; 2772      ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 4659      ;
+;                                             ;           ;
+; I/O pins                                    ; 117       ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 4659      ;
+; Total fan-out                               ; 83643     ;
+; Average fan-out                             ; 4.50      ;
++---------------------------------------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                              ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                ; Entity Name          ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------+----------------------+--------------+
+; |top_module                  ; 13691 (0)           ; 4659 (0)                  ; 0                 ; 0          ; 117  ; 0            ; |top_module                                                        ; top_module           ; work         ;
+;    |VSX_module:VSX|          ; 576 (576)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_module|VSX_module:VSX                                         ; VSX_module           ; work         ;
+;    |buffer_in:buff_in|       ; 8103 (8103)         ; 1380 (1380)               ; 0                 ; 0          ; 0    ; 0            ; |top_module|buffer_in:buff_in                                      ; buffer_in            ; work         ;
+;    |control:control|         ; 15 (15)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |top_module|control:control                                        ; control              ; work         ;
+;    |counter:counter|         ; 6 (6)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |top_module|counter:counter                                        ; counter              ; work         ;
+;    |register:re|             ; 0 (0)               ; 1600 (1600)               ; 0                 ; 0          ; 0    ; 0            ; |top_module|register:re                                            ; register             ; work         ;
+;    |transformation_round:tr| ; 4586 (1611)         ; 1600 (1600)               ; 0                 ; 0          ; 0    ; 0            ; |top_module|transformation_round:tr                                ; transformation_round ; work         ;
+;       |step_mapping:sm|      ; 2975 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_module|transformation_round:tr|step_mapping:sm                ; step_mapping         ; work         ;
+;          |sm_chi:chi|        ; 1536 (1536)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_module|transformation_round:tr|step_mapping:sm|sm_chi:chi     ; sm_chi               ; work         ;
+;          |sm_iota:iota|      ; 71 (71)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_module|transformation_round:tr|step_mapping:sm|sm_iota:iota   ; sm_iota              ; work         ;
+;          |sm_theta:theta|    ; 1368 (1368)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_module|transformation_round:tr|step_mapping:sm|sm_theta:theta ; sm_theta             ; work         ;
+;    |trunc:trunc|             ; 405 (405)           ; 65 (65)                   ; 0                 ; 0          ; 0    ; 0            ; |top_module|trunc:trunc                                            ; trunc                ; work         ;
++------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |top_module|control:control|current_state                                                                                                                                   ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+; Name             ; current_state.S8 ; current_state.S7 ; current_state.S6 ; current_state.S5 ; current_state.S4 ; current_state.S3 ; current_state.S2 ; current_state.S1 ; current_state.S9 ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+; current_state.S1 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ;
+; current_state.S2 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 1                ; 0                ;
+; current_state.S3 ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 1                ; 0                ;
+; current_state.S4 ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 1                ; 0                ;
+; current_state.S5 ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 1                ; 0                ;
+; current_state.S6 ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ;
+; current_state.S7 ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ;
+; current_state.S8 ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ;
+; current_state.S9 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 1                ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++---------------------------------------+------------------------------------------+
+; Register name                         ; Reason for Removal                       ;
++---------------------------------------+------------------------------------------+
+; buffer_in:buff_in|counter[1,2]        ; Merged with buffer_in:buff_in|counter[0] ;
+; control:control|current_state~4       ; Lost fanout                              ;
+; control:control|current_state~5       ; Lost fanout                              ;
+; control:control|current_state~6       ; Lost fanout                              ;
+; Total Number of Removed Registers = 5 ;                                          ;
++---------------------------------------+------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 4659  ;
+; Number of registers using Synchronous Clear  ; 61    ;
+; Number of registers using Synchronous Load   ; 30    ;
+; Number of registers using Asynchronous Clear ; 4659  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 3013  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; buffer_in:buff_in|first                ; 4       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; 3:1                ; 29 bits   ; 58 LEs        ; 0 LEs                ; 58 LEs                 ; Yes        ; |top_module|buffer_in:buff_in|counter[16]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[166][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[166][4]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[165][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[165][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[164][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[164][4]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[163][5]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[163][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[162][6]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[162][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[161][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[161][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[160][5]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[160][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[158][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[158][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[157][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[157][4]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[156][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[156][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[155][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[155][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[154][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[154][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[153][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[153][4]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[152][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[152][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[150][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[150][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[149][5]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[149][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[148][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[148][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[147][5]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[147][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[146][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[146][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[145][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[145][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[144][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[144][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[142][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[142][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[141][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[141][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[140][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[140][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[139][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[139][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[138][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[138][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[137][6]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[137][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[136][6]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[136][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[134][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[134][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[133][5]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[133][4]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[132][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[132][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[131][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[131][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[130][6]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[130][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[129][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[129][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[128][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[128][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[126][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[126][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[125][6]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[125][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[124][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[124][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[123][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[123][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[122][5]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[122][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[121][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[121][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[120][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[120][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[118][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[118][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[117][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[117][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[116][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[116][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[115][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[115][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[114][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[114][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[113][5]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[113][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[112][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[112][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[110][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[110][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[109][5]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[109][4]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[108][7]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[108][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[107][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[107][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[106][5]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[106][4]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[105][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[105][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[104][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[104][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[102][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[102][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[101][6]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[101][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[100][6]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[100][3]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[99][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[99][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[98][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[98][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[97][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[97][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[96][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[96][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[94][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[94][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[93][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[93][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[92][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[92][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[91][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[91][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[90][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[90][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[89][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[89][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[88][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[88][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[86][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[86][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[85][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[85][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[84][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[84][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[83][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[83][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[82][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[82][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[81][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[81][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[80][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[80][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[78][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[78][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[77][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[77][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[76][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[76][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[75][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[75][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[74][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[74][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[73][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[73][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[72][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[72][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[70][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[70][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[69][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[69][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[68][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[68][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[67][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[67][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[66][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[66][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[65][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[65][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[64][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[64][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[62][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[62][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[61][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[61][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[60][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[60][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[59][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[59][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[58][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[58][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[57][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[57][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[56][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[56][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[54][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[54][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[53][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[53][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[52][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[52][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[51][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[51][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[50][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[50][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[49][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[49][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[48][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[48][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[46][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[46][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[45][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[45][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[44][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[44][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[43][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[43][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[42][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[42][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[41][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[41][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[40][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[40][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[38][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[38][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[37][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[37][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[36][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[36][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[35][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[35][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[34][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[34][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[33][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[33][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[32][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[32][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[30][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[30][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[29][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[29][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[28][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[28][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[27][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[27][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[26][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[26][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[25][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[25][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[24][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[24][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[22][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[22][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[21][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[21][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[20][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[20][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[19][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[19][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[18][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[18][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[17][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[17][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[16][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[16][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[14][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[14][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[13][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[13][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[12][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[12][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[11][7]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[11][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[10][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[10][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[9][7]             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[9][4]             ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[8][1]             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[8][0]             ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[6][6]             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[6][3]             ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[5][5]             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[5][0]             ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[4][1]             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[4][0]             ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[3][5]             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[3][0]             ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[2][2]             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[2][0]             ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[1][1]             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[1][0]             ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[0][7]             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[0][4]             ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[159][6]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[159][4]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[151][5]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[151][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[127][2]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[127][0]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[119][1]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[119][4]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[111][6]           ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[111][4]           ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[95][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[95][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[87][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[87][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[79][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[79][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[63][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[63][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[55][1]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[55][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[47][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[47][3]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[39][5]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[39][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[31][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[31][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[23][6]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[23][0]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[15][2]            ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[15][4]            ;
+; 11:1               ; 5 bits    ; 35 LEs        ; 30 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[7][2]             ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 18 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[7][3]             ;
+; 12:1               ; 5 bits    ; 40 LEs        ; 35 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[167][7]           ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 21 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[167][4]           ;
+; 12:1               ; 5 bits    ; 40 LEs        ; 35 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[143][1]           ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 21 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[143][0]           ;
+; 12:1               ; 5 bits    ; 40 LEs        ; 35 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[135][5]           ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 21 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[135][4]           ;
+; 12:1               ; 5 bits    ; 40 LEs        ; 35 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[103][6]           ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 21 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[103][0]           ;
+; 12:1               ; 5 bits    ; 40 LEs        ; 35 LEs               ; 5 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[71][6]            ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 21 LEs               ; 3 LEs                  ; Yes        ; |top_module|buffer_in:buff_in|mem[71][0]            ;
+; 6:1                ; 256 bits  ; 1024 LEs      ; 768 LEs              ; 256 LEs                ; No         ; |top_module|transformation_round:tr|sm_in[3][1][8]  ;
+; 10:1               ; 192 bits  ; 1152 LEs      ; 576 LEs              ; 576 LEs                ; No         ; |top_module|transformation_round:tr|sm_in[4][0][63] ;
+; 10:1               ; 256 bits  ; 1536 LEs      ; 768 LEs              ; 768 LEs                ; No         ; |top_module|transformation_round:tr|sm_in[2][1][3]  ;
+; 10:1               ; 64 bits   ; 384 LEs       ; 192 LEs              ; 192 LEs                ; No         ; |top_module|transformation_round:tr|sm_in[3][2][29] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |top_module|counter:counter|round_num[1]            ;
+; 64:1               ; 32 bits   ; 1344 LEs      ; 672 LEs              ; 672 LEs                ; Yes        ; |top_module|trunc:trunc|dt_o[6]                     ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 20 LEs               ; 5 LEs                  ; No         ; |top_module|trunc:trunc|Mux2                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: buffer_in:buff_in ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; sha3_224_mode  ; 0     ; Signed Integer                        ;
+; sha3_256_mode  ; 1     ; Signed Integer                        ;
+; sha3_384_mode  ; 2     ; Signed Integer                        ;
+; sha3_512_mode  ; 3     ; Signed Integer                        ;
+; shake_128_mode ; 4     ; Signed Integer                        ;
+; shake_256_mode ; 5     ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: control:control ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; S1             ; 0000  ; Unsigned Binary                     ;
+; S2             ; 0001  ; Unsigned Binary                     ;
+; S3             ; 0010  ; Unsigned Binary                     ;
+; S4             ; 0011  ; Unsigned Binary                     ;
+; S5             ; 0100  ; Unsigned Binary                     ;
+; S6             ; 0101  ; Unsigned Binary                     ;
+; S7             ; 0110  ; Unsigned Binary                     ;
+; S8             ; 0111  ; Unsigned Binary                     ;
+; S9             ; 1000  ; Unsigned Binary                     ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: register:re ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 1600  ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: trunc:trunc ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; sha3_224_mode  ; 0     ; Signed Integer                  ;
+; sha3_256_mode  ; 1     ; Signed Integer                  ;
+; sha3_384_mode  ; 2     ; Signed Integer                  ;
+; sha3_512_mode  ; 3     ; Signed Integer                  ;
+; shake_128_mode ; 4     ; Signed Integer                  ;
+; shake_256_mode ; 5     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "mux2to1_1600bit:mux2to1" ;
++------+-------+----------+---------------------------+
+; Port ; Type  ; Severity ; Details                   ;
++------+-------+----------+---------------------------+
+; m0   ; Input ; Info     ; Stuck at GND              ;
++------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 4659                        ;
+;     CLR               ; 1616                        ;
+;     CLR SCLR SLD      ; 29                          ;
+;     CLR SLD           ; 1                           ;
+;     ENA CLR           ; 2981                        ;
+;     ENA CLR SCLR      ; 32                          ;
+; arriav_lcell_comb     ; 13691                       ;
+;     arith             ; 280                         ;
+;         1 data inputs ; 279                         ;
+;         2 data inputs ; 1                           ;
+;     extend            ; 4                           ;
+;         7 data inputs ; 4                           ;
+;     normal            ; 13407                       ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 648                         ;
+;         3 data inputs ; 1843                        ;
+;         4 data inputs ; 1517                        ;
+;         5 data inputs ; 3482                        ;
+;         6 data inputs ; 5916                        ;
+; boundary_port         ; 117                         ;
+;                       ;                             ;
+; Max LUT depth         ; 11.70                       ;
+; Average LUT depth     ; 7.54                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:01:10     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Tue Mar 28 09:02:58 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_module -c top_module
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/write_output.sv
+    Info (12023): Found entity 1: write_output File: D:/ntthps/keccak-hw-prj/TienSHA/write_output.sv Line: 8
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/vsx_module.sv
+    Info (12023): Found entity 1: VSX_module File: D:/ntthps/keccak-hw-prj/TienSHA/VSX_module.sv Line: 8
+    Info (12023): Found entity 2: VSX_module_tb File: D:/ntthps/keccak-hw-prj/TienSHA/VSX_module.sv Line: 50
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/vector_testbench.sv
+    Info (12023): Found entity 1: vector_testbench File: D:/ntthps/keccak-hw-prj/TienSHA/vector_testbench.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/trunc.sv
+    Info (12023): Found entity 1: trunc File: D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv Line: 8
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/transformation_round.sv
+    Info (12023): Found entity 1: transformation_round File: D:/ntthps/keccak-hw-prj/TienSHA/transformation_round.sv Line: 10
+    Info (12023): Found entity 2: transformation_round_tb File: D:/ntthps/keccak-hw-prj/TienSHA/transformation_round.sv Line: 37
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/top_module.sv
+    Info (12023): Found entity 1: top_module File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 11
+    Info (12023): Found entity 2: top_module_tb File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 51
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/string_to_array.sv
+    Info (12023): Found entity 1: string_to_array File: D:/ntthps/keccak-hw-prj/TienSHA/string_to_array.sv Line: 11
+    Info (12023): Found entity 2: string_to_array_tb File: D:/ntthps/keccak-hw-prj/TienSHA/string_to_array.sv Line: 81
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/step_mapping_24round.sv
+    Info (12023): Found entity 1: step_mapping_24round File: D:/ntthps/keccak-hw-prj/TienSHA/step_mapping_24round.sv Line: 12
+    Info (12023): Found entity 2: step_mapping_24round_tb File: D:/ntthps/keccak-hw-prj/TienSHA/step_mapping_24round.sv Line: 36
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/step_mapping.sv
+    Info (12023): Found entity 1: step_mapping File: D:/ntthps/keccak-hw-prj/TienSHA/step_mapping.sv Line: 11
+    Info (12023): Found entity 2: step_mapping_tb File: D:/ntthps/keccak-hw-prj/TienSHA/step_mapping.sv Line: 32
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/sm_theta.sv
+    Info (12023): Found entity 1: sm_theta File: D:/ntthps/keccak-hw-prj/TienSHA/sm_theta.sv Line: 56
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/sm_rho.sv
+    Info (12023): Found entity 1: sm_rho File: D:/ntthps/keccak-hw-prj/TienSHA/sm_rho.sv Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/sm_pi.sv
+    Info (12023): Found entity 1: sm_pi File: D:/ntthps/keccak-hw-prj/TienSHA/sm_pi.sv Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/sm_iota.sv
+    Info (12023): Found entity 1: sm_iota File: D:/ntthps/keccak-hw-prj/TienSHA/sm_iota.sv Line: 58
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/sm_chi.sv
+    Info (12023): Found entity 1: sm_chi File: D:/ntthps/keccak-hw-prj/TienSHA/sm_chi.sv Line: 11
+    Info (12023): Found entity 2: sm_theta_chi_tb File: D:/ntthps/keccak-hw-prj/TienSHA/sm_chi.sv Line: 32
+Info (12021): Found 0 design units, including 0 entities, in source file /ntthps/keccak-hw-prj/tiensha/round_constant.sv
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/register.sv
+    Info (12023): Found entity 1: register File: D:/ntthps/keccak-hw-prj/TienSHA/register.sv Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/pipeline_transformation_round.sv
+    Info (12023): Found entity 1: pipeline_transformation_round File: D:/ntthps/keccak-hw-prj/TienSHA/pipeline_transformation_round.sv Line: 10
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/pipeline_top.sv
+    Info (12023): Found entity 1: pipeline_top File: D:/ntthps/keccak-hw-prj/TienSHA/pipeline_top.sv Line: 11
+    Info (12023): Found entity 2: pipeline_top_tb File: D:/ntthps/keccak-hw-prj/TienSHA/pipeline_top.sv Line: 49
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/pipeline_reg.sv
+    Info (12023): Found entity 1: pipeline_reg File: D:/ntthps/keccak-hw-prj/TienSHA/pipeline_reg.sv Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/mux2to1_1600bit.sv
+    Info (12023): Found entity 1: mux2to1_1600bit File: D:/ntthps/keccak-hw-prj/TienSHA/mux2to1_1600bit.sv Line: 8
+Info (12021): Found 1 design units, including 0 entities, in source file /ntthps/keccak-hw-prj/tiensha/keccak_pkg.sv
+    Info (12022): Found design unit 1: keccak_pkg (SystemVerilog) File: D:/ntthps/keccak-hw-prj/TienSHA/keccak_pkg.sv Line: 8
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/keccak_core_pl.sv
+    Info (12023): Found entity 1: keccak_core_PL File: D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_PL.sv Line: 11
+    Info (12023): Found entity 2: keccak_core_PL_tb File: D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_PL.sv Line: 49
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/keccak_core_nopl.sv
+    Info (12023): Found entity 1: keccak_core_NOPL File: D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_NOPL.sv Line: 11
+    Info (12023): Found entity 2: keccak_core_NOPL_tb File: D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_NOPL.sv Line: 52
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/keccak_core_ad_nopl.sv
+    Info (12023): Found entity 1: keccak_core_ad_NOPL File: D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_ad_NOPL.sv Line: 11
+    Info (12023): Found entity 2: keccak_core_ad_NOPL_tb File: D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_ad_NOPL.sv Line: 51
+Info (12021): Found 4 design units, including 4 entities, in source file /ntthps/keccak-hw-prj/tiensha/get_input.sv
+    Info (12023): Found entity 1: get_input File: D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv Line: 8
+    Info (12023): Found entity 2: pc_counter File: D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv Line: 60
+    Info (12023): Found entity 3: readfile File: D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv Line: 90
+    Info (12023): Found entity 4: readfile_tb File: D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv Line: 131
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/counter.sv
+    Info (12023): Found entity 1: counter File: D:/ntthps/keccak-hw-prj/TienSHA/counter.sv Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/control_signal.sv
+    Info (12023): Found entity 1: control_signal File: D:/ntthps/keccak-hw-prj/TienSHA/control_signal.sv Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/control_2.sv
+    Info (12023): Found entity 1: control_2 File: D:/ntthps/keccak-hw-prj/TienSHA/control_2.sv Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/control.sv
+    Info (12023): Found entity 1: control File: D:/ntthps/keccak-hw-prj/TienSHA/control.sv Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/buffer_in_2.sv
+    Info (12023): Found entity 1: buffer_in_2 File: D:/ntthps/keccak-hw-prj/TienSHA/buffer_in_2.sv Line: 8
+Info (12021): Found 2 design units, including 2 entities, in source file /ntthps/keccak-hw-prj/tiensha/buffer_in.sv
+    Info (12023): Found entity 1: buffer_in File: D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv Line: 8
+    Info (12023): Found entity 2: buffer_in_test File: D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv Line: 136
+Info (12021): Found 1 design units, including 1 entities, in source file /ntthps/keccak-hw-prj/tiensha/array_to_string.sv
+    Info (12023): Found entity 1: array_to_string File: D:/ntthps/keccak-hw-prj/TienSHA/array_to_string.sv Line: 11
+Info (12021): Found 0 design units, including 0 entities, in source file /ntthps/keccak-hw-prj/tiensha/24round_sm.sv
+Warning (10236): Verilog HDL Implicit Net warning at vector_testbench.sv(20): created implicit net for "ready" File: D:/ntthps/keccak-hw-prj/TienSHA/vector_testbench.sv Line: 20
+Warning (10236): Verilog HDL Implicit Net warning at pipeline_transformation_round.sv(28): created implicit net for "out" File: D:/ntthps/keccak-hw-prj/TienSHA/pipeline_transformation_round.sv Line: 28
+Warning (10236): Verilog HDL Implicit Net warning at get_input.sv(142): created implicit net for "finish_hash" File: D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv Line: 142
+Info (12127): Elaborating entity "top_module" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at top_module.sv(24): object "a" assigned a value but never read File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 24
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "tr_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "tr_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "a" into its bus
+Info (12128): Elaborating entity "buffer_in" for hierarchy "buffer_in:buff_in" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 29
+Warning (10036): Verilog HDL or VHDL warning at buffer_in.sv(22): object "stop_read" assigned a value but never read File: D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv Line: 22
+Warning (10230): Verilog HDL assignment warning at buffer_in.sv(77): truncated value with size 32 to match size of target (4) File: D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv Line: 77
+Warning (10230): Verilog HDL assignment warning at buffer_in.sv(90): truncated value with size 32 to match size of target (4) File: D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv Line: 90
+Info (12128): Elaborating entity "mux2to1_1600bit" for hierarchy "mux2to1_1600bit:mux2to1" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 32
+Info (12128): Elaborating entity "VSX_module" for hierarchy "VSX_module:VSX" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 33
+Info (12128): Elaborating entity "string_to_array" for hierarchy "string_to_array:sta" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 34
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "a" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "a" into its bus
+Info (12128): Elaborating entity "transformation_round" for hierarchy "transformation_round:tr" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 35
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "tr_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "tr_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "sm_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "sm_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "sm_out_ff" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "tr_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "tr_out" into its bus
+Info (12128): Elaborating entity "step_mapping" for hierarchy "transformation_round:tr|step_mapping:sm" File: D:/ntthps/keccak-hw-prj/TienSHA/transformation_round.sv Line: 21
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "theta_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "theta_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "rho_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "rho_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "chi_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "chi_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "pi_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "pi_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "iota_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "iota_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "out" into its bus
+Info (12128): Elaborating entity "sm_theta" for hierarchy "transformation_round:tr|step_mapping:sm|sm_theta:theta" File: D:/ntthps/keccak-hw-prj/TienSHA/step_mapping.sv Line: 24
+Warning (10230): Verilog HDL assignment warning at sm_theta.sv(82): truncated value with size 32 to match size of target (3) File: D:/ntthps/keccak-hw-prj/TienSHA/sm_theta.sv Line: 82
+Warning (10230): Verilog HDL assignment warning at sm_theta.sv(80): truncated value with size 32 to match size of target (3) File: D:/ntthps/keccak-hw-prj/TienSHA/sm_theta.sv Line: 80
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "theta_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "theta_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "theta_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "theta_out" into its bus
+Info (12128): Elaborating entity "sm_rho" for hierarchy "transformation_round:tr|step_mapping:sm|sm_rho:rho" File: D:/ntthps/keccak-hw-prj/TienSHA/step_mapping.sv Line: 25
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "rho_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "rho_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "rho_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "rho_out" into its bus
+Info (12128): Elaborating entity "sm_pi" for hierarchy "transformation_round:tr|step_mapping:sm|sm_pi:pi" File: D:/ntthps/keccak-hw-prj/TienSHA/step_mapping.sv Line: 26
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "pi_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "pi_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "pi_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "pi_out" into its bus
+Info (12128): Elaborating entity "sm_chi" for hierarchy "transformation_round:tr|step_mapping:sm|sm_chi:chi" File: D:/ntthps/keccak-hw-prj/TienSHA/step_mapping.sv Line: 27
+Warning (10230): Verilog HDL assignment warning at sm_chi.sv(26): truncated value with size 32 to match size of target (3) File: D:/ntthps/keccak-hw-prj/TienSHA/sm_chi.sv Line: 26
+Warning (10230): Verilog HDL assignment warning at sm_chi.sv(27): truncated value with size 32 to match size of target (1) File: D:/ntthps/keccak-hw-prj/TienSHA/sm_chi.sv Line: 27
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "chi_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "chi_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "chi_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "chi_out" into its bus
+Info (12128): Elaborating entity "sm_iota" for hierarchy "transformation_round:tr|step_mapping:sm|sm_iota:iota" File: D:/ntthps/keccak-hw-prj/TienSHA/step_mapping.sv Line: 28
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "iota_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "iota_out" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "iota_in" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "iota_out" into its bus
+Info (12128): Elaborating entity "counter" for hierarchy "counter:counter" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 36
+Warning (10230): Verilog HDL assignment warning at counter.sv(24): truncated value with size 32 to match size of target (5) File: D:/ntthps/keccak-hw-prj/TienSHA/counter.sv Line: 24
+Info (12128): Elaborating entity "control" for hierarchy "control:control" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 38
+Info (12128): Elaborating entity "array_to_string" for hierarchy "array_to_string:ats" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 42
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "a" into its bus
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "a" into its bus
+Info (12128): Elaborating entity "register" for hierarchy "register:re" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 43
+Info (12128): Elaborating entity "trunc" for hierarchy "trunc:trunc" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 46
+Warning (10230): Verilog HDL assignment warning at trunc.sv(54): truncated value with size 32 to match size of target (6) File: D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv Line: 54
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "transformation_round:tr|step_mapping:sm|sm_iota:iota|Ram0" is uninferred due to inappropriate RAM size File: D:/ntthps/keccak-hw-prj/TienSHA/sm_iota.sv Line: 72
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/ntthps/keccak-hw-prj/TienSHA/qtussynth/output_files/top_module.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 5 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "d[0]" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 17
+    Warning (15610): No output dependent on input pin "d[1]" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 17
+    Warning (15610): No output dependent on input pin "d[2]" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 17
+    Warning (15610): No output dependent on input pin "d[3]" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 17
+    Warning (15610): No output dependent on input pin "d[4]" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 17
+Info (21057): Implemented 15437 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 82 input pins
+    Info (21059): Implemented 35 output pins
+    Info (21061): Implemented 15320 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 5027 megabytes
+    Info: Processing ended: Tue Mar 28 09:04:24 2023
+    Info: Elapsed time: 00:01:26
+    Info: Total CPU time (on all processors): 00:01:30
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/ntthps/keccak-hw-prj/TienSHA/qtussynth/output_files/top_module.map.smsg.
+
+
