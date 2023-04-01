@@ -1,5 +1,5 @@
 Timing Analyzer report for top_module
-Tue Mar 28 09:23:41 2023
+Sat Apr  1 13:22:20 2023
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -100,26 +100,26 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 5.71        ;
+; Average used               ; 7.59        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  49.5%      ;
-;     Processor 3            ;  48.6%      ;
-;     Processor 4            ;  45.3%      ;
-;     Processor 5            ;  27.3%      ;
-;     Processor 6            ;  27.3%      ;
-;     Processor 7            ;  27.3%      ;
-;     Processor 8            ;  27.3%      ;
-;     Processor 9            ;  27.3%      ;
-;     Processor 10           ;  27.3%      ;
-;     Processor 11           ;  27.3%      ;
-;     Processor 12           ;  27.3%      ;
-;     Processor 13           ;  27.3%      ;
-;     Processor 14           ;  27.3%      ;
-;     Processor 15           ;  27.3%      ;
-;     Processor 16           ;  27.3%      ;
+;     Processor 2            ;  55.9%      ;
+;     Processor 3            ;  55.1%      ;
+;     Processor 4            ;  53.6%      ;
+;     Processor 5            ;  41.2%      ;
+;     Processor 6            ;  41.2%      ;
+;     Processor 7            ;  41.2%      ;
+;     Processor 8            ;  41.2%      ;
+;     Processor 9            ;  41.2%      ;
+;     Processor 10           ;  41.2%      ;
+;     Processor 11           ;  41.2%      ;
+;     Processor 12           ;  41.2%      ;
+;     Processor 13           ;  41.2%      ;
+;     Processor 14           ;  41.2%      ;
+;     Processor 15           ;  41.1%      ;
+;     Processor 16           ;  41.1%      ;
 +----------------------------+-------------+
 
 
@@ -970,7 +970,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Tue Mar 28 09:23:17 2023
+    Info: Processing started: Sat Apr  1 13:21:57 2023
 Info: Command: quartus_sta top_module -c top_module
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1062,9 +1062,9 @@ Info (332146): Worst-case minimum pulse width slack is -0.092
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5635 megabytes
-    Info: Processing ended: Tue Mar 28 09:23:41 2023
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:01:30
+    Info: Peak virtual memory: 5629 megabytes
+    Info: Processing ended: Sat Apr  1 13:22:20 2023
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:01:53
 
 

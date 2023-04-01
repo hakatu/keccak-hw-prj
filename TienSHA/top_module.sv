@@ -21,7 +21,7 @@ module top_module(clk, rst_n, start, dt_i, cmode, last_block, d, valid, finish_h
 
 	logic		last_block, buff_full, first, nxt_block, en_vsx, en_counter, finish;
 	logic		[1343:0] dt_o;
-	state		tr_out, tr_in, a;
+	state		tr_out, tr_in;//, a;
 	logic		[1599:0] init_state, data_to_sta, tr_out_string, tr_out_string_finish;
 	logic		[4:0] round_num;
 	output logic		ready;
@@ -38,7 +38,7 @@ counter counter(clk, rst_n, en_counter, round_num);
 control control(clk, rst_n, start, last_block, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready);
 //control_2 control(clk, rst_n, start, last_block, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready);
 
-assign a = tr_out;
+//assign a = tr_out;
 array_to_string ats(tr_out, tr_out_string);
 register re(clk, rst_n, finish, tr_out_string, tr_out_string_finish);
 

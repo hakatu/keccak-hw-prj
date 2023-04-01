@@ -33,7 +33,8 @@ initial
 			$fclose(fw);
 */
 
-			$readmemh("I:/Keccak/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_in.txt",buff);
+			//$readmemh("I:/Keccak/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_in.txt",buff);
+			$readmemh("D:/ntthps/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_in.txt",buff);
 			No_test = buff[0]; 
 			//pc = 2;
 	end

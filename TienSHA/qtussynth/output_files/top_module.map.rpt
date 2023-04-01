@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_module
-Tue Mar 28 09:04:24 2023
+Fri Mar 31 16:32:37 2023
 Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
 
 
@@ -53,7 +53,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Mar 28 09:04:24 2023       ;
+; Analysis & Synthesis Status     ; Successful - Fri Mar 31 16:32:36 2023       ;
 ; Quartus Prime Version           ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
 ; Revision Name                   ; top_module                                  ;
 ; Top-level Entity Name           ; top_module                                  ;
@@ -168,19 +168,19 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 16          ;
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
-; Average used               ; 1.41        ;
+; Average used               ; 1.40        ;
 ; Maximum used               ; 16          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  19.1%      ;
-;     Processor 3            ;  19.1%      ;
-;     Processor 4            ;   2.1%      ;
+;     Processor 2            ;  18.5%      ;
+;     Processor 3            ;  18.5%      ;
+;     Processor 4            ;   2.5%      ;
 ;     Processor 5            ;   0.1%      ;
 ;     Processor 6            ;   0.1%      ;
 ;     Processor 7            ;   0.1%      ;
 ;     Processor 8            ;   0.1%      ;
-;     Processors 9-16        ;   0.1%      ;
+;     Processors 9-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -769,7 +769,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:01:10     ;
+; Top            ; 00:00:42     ;
 +----------------+--------------+
 
 
@@ -779,7 +779,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
-    Info: Processing started: Tue Mar 28 09:02:58 2023
+    Info: Processing started: Fri Mar 31 16:31:44 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_module -c top_module
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -866,10 +866,8 @@ Warning (10236): Verilog HDL Implicit Net warning at vector_testbench.sv(20): cr
 Warning (10236): Verilog HDL Implicit Net warning at pipeline_transformation_round.sv(28): created implicit net for "out" File: D:/ntthps/keccak-hw-prj/TienSHA/pipeline_transformation_round.sv Line: 28
 Warning (10236): Verilog HDL Implicit Net warning at get_input.sv(142): created implicit net for "finish_hash" File: D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv Line: 142
 Info (12127): Elaborating entity "top_module" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at top_module.sv(24): object "a" assigned a value but never read File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 24
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "tr_out" into its bus
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "tr_in" into its bus
-Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "a" into its bus
 Info (12128): Elaborating entity "buffer_in" for hierarchy "buffer_in:buff_in" File: D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv Line: 29
 Warning (10036): Verilog HDL or VHDL warning at buffer_in.sv(22): object "stop_read" assigned a value but never read File: D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv Line: 22
 Warning (10230): Verilog HDL assignment warning at buffer_in.sv(77): truncated value with size 32 to match size of target (4) File: D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv Line: 77
@@ -957,11 +955,11 @@ Info (21057): Implemented 15437 device resources after synthesis - the final res
     Info (21058): Implemented 82 input pins
     Info (21059): Implemented 35 output pins
     Info (21061): Implemented 15320 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 5027 megabytes
-    Info: Processing ended: Tue Mar 28 09:04:24 2023
-    Info: Elapsed time: 00:01:26
-    Info: Total CPU time (on all processors): 00:01:30
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 5006 megabytes
+    Info: Processing ended: Fri Mar 31 16:32:37 2023
+    Info: Elapsed time: 00:00:53
+    Info: Total CPU time (on all processors): 00:00:56
 
 
 +------------------------------------------+
