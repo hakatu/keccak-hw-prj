@@ -15,10 +15,32 @@ module vector_testbench();
 initial  clk = 0;
 always #5 clk = !clk;
 
-readfile readfile(clk, rst_n, finish_hash, cmode, d, dt_i, last_block, start, wr_en, first_test);
+readfile ireadfile(clk, rst_n, finish_hash, cmode, d, dt_i, last_block, start, wr_en, first_test);
 //pipeline_top pipeline_top(clk, rst_n, start, dt_i, cmode, last_block, d, valid, finish_hash, dt_o_hash);
-top_module top_module(clk, rst_n, start, dt_i, cmode, last_block, d, valid, finish_hash, dt_o_hash, ready);
-write_output write_output(clk, rst_n, cmode, dt_o_hash, d, finish_hash, ready, wr_en, first_test);
+//top_module top_module(clk, rst_n, start, dt_i, cmode, last_block, d, valid, finish_hash, dt_o_hash, ready);
+
+top_module itop_module(
+	.clk(clk), 
+	.rst_n(rst_n), 
+	
+	//////for inputing data/////////
+	.start(start), 
+	.dt_i(dt_i),  
+	.cmode(cmode), //chose mode of operation(), see config above
+	.dilen(7'd8), //length of data in in block of 8 byte
+	.d(d), //length of output for shake (11 bit) in bit
+	.valid(valid), //output bao hieu da nhan packet(), that s
+	.last_block(last_block), //legacy last block 
+	/////////////////////////////////
+	
+	
+	.finish_hash(finish_hash), 
+	.dt_o_hash(dt_o_hash), 
+	.ready(ready)
+	
+	);
+
+write_output iwrite_output(clk, rst_n, cmode, dt_o_hash, d, finish_hash, ready, wr_en, first_test);
 //wr_en : de cho phep ghi ra output (tranh truong hop doc het mem roi quay lai)
 
 always 
