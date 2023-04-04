@@ -17,6 +17,7 @@ import keccak_pkg::state;
 import keccak_pkg::N;
 
 module top_module(
+	//////////////////////////of course/////////////////////
 	clk, 
 	rst_n, 
 	
@@ -26,15 +27,25 @@ module top_module(
 	cmode, //chose mode of operation, see config above
 	dilen, //length of data in in block of 8 byte
 	d, //length of output for shake (11 bit) in bit
-	valid, //output bao hieu da nhan packet, that s
+	valid, //not really needed
 	last_block, //legacy last block 
 	/////////////////////////////////
 	
-	
+	//////for outputing data/////////
 	finish_hash, 
 	dt_o_hash, 
-	ready
-	
+	ready,
+	/////////////////////////////////
+
+	///////////////for output hash data to async fifo/////////////
+	clkwffo,
+	wincffo,
+	//////////////////////flag only///////////////////////////////
+
+	///////////////for input hash data from async fifo/////////////
+	clkrffi,
+	rincffi
+	//////////////////////flag only///////////////////////////////
 	);
 
 	//////////////////////////////////////////////////////////////////////////////
@@ -58,7 +69,7 @@ module top_module(
 	output logic		ready;
 
 //////////////////////////////////////////////////////////////////////////////
-//logic for new last block
+//logic for new last block //tested
     // Initialize the byte_counter
     logic [6:0] byte_counter = 7'b0;
     
@@ -84,7 +95,11 @@ module top_module(
     always_ff @(posedge clk) begin
         if (!rst_n) begin
             byte_counter <= 7'd0;
-        end else if (start) begin
+		end
+		else if (newlastblock) begin
+            byte_counter <= byte_counter;
+		end
+        else if (start) begin
             byte_counter <= byte_counter + 7'd1;
         end else if (!start) begin
             byte_counter <= 7'd0;
@@ -96,9 +111,52 @@ always_comb begin
     newlastblock = byte_counter == dilen;
 end
 
+/////////////////////this part is for fifo hehe//////////////////////////
+//out to fifo out
+assign wincffo = 1'b1;
+
+logic clkwffo;
+
+always @(posedge clk) begin
+	if(rst_n)
+	clkwffo <= 1'b0;
+	else if(finish_hash)
+	clkwffo <= clkwffo;
+	else if (ready) begin
+		clkwffo <= !clkwffo;
+	end
+end
+
+///this logic is correct because ready set to 1 when hashing is done, finish hash is the last block of hash
+//and prolonged until next hash
+
+//in for fifo in
+
+assign rincffi = 1'b1;
+
+logic clkrffi;
+
+always @(posedge clk) begin
+	if(rst_n)
+	clkrffi <= 1'b0;
+	else if (newlastblock) begin
+		clkrffi <= clkrffi;
+	end
+	else if (start) begin
+		clkrffi <= !clkrffi;
+	end
+end
+
+//it is important to note the delay of FIFO
+parameter FFDL = 3; //3 clocks delay 
+wire startdl;
+
+ffxkclkx iffxkclkx1 #(FFDL,1) (clk,!rst_n,start,startdl);
+
 ///////////////////////structural added////////////////////////////////////////
-buffer_in buff_in(clk, rst_n, dt_i, cmode, last_block, valid, dt_o, buff_full, first, en_counter);	
+//buffer_in buff_in(clk, rst_n, dt_i, cmode, last_block, valid, dt_o, buff_full, first, en_counter); //legcay
 //buffer_in_2 buff_in(clk, rst_n, dt_i, cmode, last_block, valid, dt_o, buff_full, first, en_counter);	
+buffer_in buff_in(clk, rst_n, dt_i, cmode, newlastblock, valid, dt_o, buff_full, first, en_counter);
 
 mux2to1_1600bit mux2to1(1600'b0, tr_out_string_finish, nxt_block, init_state);
 VSX_module VSX(dt_o, init_state, cmode, en_vsx, data_to_sta);
@@ -106,7 +164,8 @@ string_to_array sta(data_to_sta, tr_in);
 transformation_round tr(clk, rst_n, tr_in, round_num, tr_out, finish);
 counter counter(clk, rst_n, en_counter, round_num);
 //control_signal control(clk, rst_n, start, last_block, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready);
-control control(clk, rst_n, start, last_block, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready);
+//control control(clk, rst_n, start, last_block, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready); //legacy
+control control(clk, rst_n, startdl, newlastblock, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready);
 //control_2 control(clk, rst_n, start, last_block, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready);
 
 //assign a = tr_out;

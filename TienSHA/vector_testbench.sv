@@ -38,6 +38,15 @@ top_module itop_module(
 	.dt_o_hash(dt_o_hash), 
 	.ready(ready)
 	
+	///////////////for output hash data to async fifo/////////////
+	.clkwffo(clkwffo),
+	.wincffo(wincffo),
+	//////////////////////flag only///////////////////////////////
+
+	///////////////for input hash data from async fifo/////////////
+	.clkrffi(clkrffi),
+	.rincffi(rincffi)
+	//////////////////////flag only///////////////////////////////
 	);
 
 write_output iwrite_output(clk, rst_n, cmode, dt_o_hash, d, finish_hash, ready, wr_en, first_test);

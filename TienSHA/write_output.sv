@@ -32,14 +32,14 @@ begin
 			count = 0; 
 			if (first_test) 
 				begin
-					fw = $fopen ("I:/Keccak/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_out.txt", "w"); 
-					//fw = $fopen ("D:/ntthps/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_out.txt", "w"); 
+					//fw = $fopen ("I:/Keccak/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_out.txt", "w"); 
+					fw = $fopen ("D:/ntthps/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_out.txt", "w"); 
 					
 					$fwrite (fw,"SHA3 value: \n"); 
 					$fclose(fw); 
 				
-					fw = $fopen ("I:/Keccak/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_out.txt", "a+");
-					//fw = $fopen ("D:/ntthps/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_out.txt", "a+");
+					//fw = $fopen ("I:/Keccak/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_out.txt", "a+");
+					fw = $fopen ("D:/ntthps/keccak-hw-prj/TienSHA/KeccakInPython/Keccak_out.txt", "a+");
 				end
 		end  
 	else 
