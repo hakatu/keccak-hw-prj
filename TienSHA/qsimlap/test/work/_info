@@ -1,0 +1,188 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+R0
+!s11f vlog 2021.2 2021.04, Apr 14 2021
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dD:/ntthps/keccak-hw-prj/TienSHA/qsimlap
+T_opt
+!s110 1680594769
+V9JXAkkSoCWh_3aTCacd4H0
+Z2 04 6 4 work fflopx fast 0
+=1-3003c8d4a537-642bd751-2ad-449c
+Z3 !s124 OEM10U1 
+o-quiet -auto_acc_if_foreign -work work
+Z4 tCvgOpt 0
+n@_opt
+Z5 OL;O;2021.2;73
+R1
+T_opt1
+!s110 1680594794
+Vj]JOXF0Gh5YOhVPXg1Z3e1
+R2
+=1-3003c8d4a537-642bd76a-198-4a1c
+R3
+o-quiet -auto_acc_if_foreign -work work +acc
+R4
+n@_opt1
+R5
+vffclkconvx
+Z6 !s110 1680594747
+!i10b 1
+!s100 KFk_MO]7z5=b?66;_0^633
+IF0KYSI8Nd<?^o?<fDA<k]2
+Z7 dD:/ntthps/keccak-hw-prj/TienSHA/qsimlap/test
+Z8 w1556112388
+8D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffclkconvx.v
+FD:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffclkconvx.v
+!i122 0
+L0 15 80
+Z9 VDg1SIo80bB@j0V0VzS_@n1
+Z10 OL;L;2021.2;73
+r1
+!s85 0
+31
+!s108 1680594746.000000
+!s107 D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffclkconvx.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffclkconvx.v|
+!i113 0
+Z11 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R4
+vfflopnx
+R6
+!i10b 1
+!s100 0^ZL<:<d>a[5X<9ROlEU52
+I4gloX8^HUEo4Y_;VWB^Ji1
+R7
+R8
+8D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopnx.v
+FD:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopnx.v
+!i122 1
+L0 13 27
+R9
+R10
+r1
+!s85 0
+31
+Z12 !s108 1680594747.000000
+!s107 D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopnx.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopnx.v|
+!i113 0
+R11
+R4
+vfflopsx
+R6
+!i10b 1
+!s100 F>XL316QR^`Z=bmSX3XID1
+I<m<1NXVgmE5CUV?EC6Vz^2
+R7
+Z13 w1556112390
+8D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopsx.v
+FD:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopsx.v
+!i122 2
+L0 13 26
+R9
+R10
+r1
+!s85 0
+31
+R12
+!s107 D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopsx.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopsx.v|
+!i113 0
+R11
+R4
+vfflopx
+R6
+!i10b 1
+!s100 ol2OgL3A[AYB1nRg<FEGC1
+IZnfI4;YEhCT?8zBn<3Mj62
+R7
+R13
+8D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopx.v
+FD:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopx.v
+!i122 3
+L0 13 61
+R9
+R10
+r1
+!s85 0
+31
+R12
+!s107 D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopx.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopx.v|
+!i113 0
+R11
+R4
+vfflopxe
+R6
+!i10b 1
+!s100 YXHUF591zZ6a`bkXJgDga2
+I::VjT[9B7>RO`;?WdoSCG1
+R7
+R13
+8D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopxe.v
+FD:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopxe.v
+!i122 4
+L0 14 25
+R9
+R10
+r1
+!s85 0
+31
+R12
+!s107 D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopxe.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopxe.v|
+!i113 0
+R11
+R4
+vffxkclk
+R6
+!i10b 1
+!s100 g^0dKMEcU0XE7<k>>76Dc3
+I71z@5SNl@2J]nEH8^>HTC1
+R7
+w1558031176
+8D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclk.v
+FD:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclk.v
+!i122 5
+Z14 L0 14 36
+R9
+R10
+r1
+!s85 0
+31
+R12
+!s107 D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclk.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclk.v|
+!i113 0
+R11
+R4
+vffxkclkx
+R6
+!i10b 1
+!s100 fJn4gcoh0JOXPL2gBVj<W2
+I60E:^^b]aT3aZXRHaTMB>3
+R7
+w1558031186
+8D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclkx.v
+FD:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclkx.v
+!i122 6
+R14
+R9
+R10
+r1
+!s85 0
+31
+R12
+!s107 D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclkx.v|
+!s90 -reportprogress|300|-work|work|-vopt|-stats=none|D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclkx.v|
+!i113 0
+R11
+R4

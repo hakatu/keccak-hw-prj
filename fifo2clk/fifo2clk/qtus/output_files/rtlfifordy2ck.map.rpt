@@ -1,0 +1,675 @@
+Analysis & Synthesis report for rtlfifordy2ck
+Tue Apr  4 00:31:31 2023
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Source assignments for iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component|altsyncram_ppn1:auto_generated
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |rtlfifordy2ck
+ 14. Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo
+ 15. Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo|fflopx:flxfifoflush_c2w_sh
+ 16. Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo|fflopx:flxfifoflush_r2w_sh
+ 17. Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo|fflopx:flxfifoflush_c2r_sh
+ 18. Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo|convclk_grayffwr:write_control
+ 19. Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo|convclk_grayffrd:read_control
+ 20. Parameter Settings for User Entity Instance: iarray113x:is_dual_clk.imemfifo
+ 21. Parameter Settings for User Entity Instance: iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram
+ 22. Parameter Settings for User Entity Instance: iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component
+ 23. altsyncram Parameter Settings by Entity Instance
+ 24. Port Connectivity Checks: "iarray113x:is_dual_clk.imemfifo"
+ 25. Port Connectivity Checks: "convclk_grayffctrl:is_dual_clk.ififo"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2021  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Apr  4 00:31:31 2023       ;
+; Quartus Prime Version           ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                   ; rtlfifordy2ck                               ;
+; Top-level Entity Name           ; rtlfifordy2ck                               ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 347                                         ;
+; Total pins                      ; 100                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 4,096                                       ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC9E7F35C8     ;                    ;
+; Top-level entity name                                                           ; rtlfifordy2ck      ; rtlfifordy2ck      ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+; ../iarray113x.v                  ; yes             ; User Verilog HDL File        ; I:/Keccak/keccak-hw-prj/fifo2clk/iarray113x.v                                ;         ;
+; ../alsyncram112x.v               ; yes             ; User Verilog HDL File        ; I:/Keccak/keccak-hw-prj/fifo2clk/alsyncram112x.v                             ;         ;
+; ../rtlfifordy2ck.v               ; yes             ; User Verilog HDL File        ; I:/Keccak/keccak-hw-prj/fifo2clk/rtlfifordy2ck.v                             ;         ;
+; ../fflopx.v                      ; yes             ; User Verilog HDL File        ; I:/Keccak/keccak-hw-prj/fifo2clk/fflopx.v                                    ;         ;
+; ../convclk_grayffwr.v            ; yes             ; User Verilog HDL File        ; I:/Keccak/keccak-hw-prj/fifo2clk/convclk_grayffwr.v                          ;         ;
+; ../convclk_grayffrd.v            ; yes             ; User Verilog HDL File        ; I:/Keccak/keccak-hw-prj/fifo2clk/convclk_grayffrd.v                          ;         ;
+; ../convclk_grayffctrl.v          ; yes             ; User Verilog HDL File        ; I:/Keccak/keccak-hw-prj/fifo2clk/convclk_grayffctrl.v                        ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; h:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; h:/intelfpga_lite/21.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; h:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; h:/intelfpga_lite/21.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal211.inc                   ; yes             ; Megafunction                 ; h:/intelfpga_lite/21.1/quartus/libraries/megafunctions/aglobal211.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; h:/intelfpga_lite/21.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; h:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; h:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; h:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_ppn1.tdf           ; yes             ; Auto-Generated Megafunction  ; I:/Keccak/keccak-hw-prj/fifo2clk/qtus/db/altsyncram_ppn1.tdf                 ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 187         ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 142         ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 46          ;
+;     -- 5 input functions                    ; 14          ;
+;     -- 4 input functions                    ; 13          ;
+;     -- <=3 input functions                  ; 69          ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 347         ;
+;                                             ;             ;
+; I/O pins                                    ; 100         ;
+; Total MLAB memory bits                      ; 0           ;
+; Total block memory bits                     ; 4096        ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; rdclk~input ;
+; Maximum fan-out                             ; 291         ;
+; Total fan-out                               ; 2295        ;
+; Average fan-out                             ; 3.18        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                             ; Entity Name        ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; |rtlfifordy2ck                               ; 142 (67)            ; 347 (208)                 ; 4096              ; 0          ; 100  ; 0            ; |rtlfifordy2ck                                                                                                                  ; rtlfifordy2ck      ; work         ;
+;    |convclk_grayffctrl:is_dual_clk.ififo|    ; 75 (1)              ; 92 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |rtlfifordy2ck|convclk_grayffctrl:is_dual_clk.ififo                                                                             ; convclk_grayffctrl ; work         ;
+;       |convclk_grayffrd:read_control|        ; 37 (37)             ; 40 (40)                   ; 0                 ; 0          ; 0    ; 0            ; |rtlfifordy2ck|convclk_grayffctrl:is_dual_clk.ififo|convclk_grayffrd:read_control                                               ; convclk_grayffrd   ; work         ;
+;       |convclk_grayffwr:write_control|       ; 37 (37)             ; 40 (40)                   ; 0                 ; 0          ; 0    ; 0            ; |rtlfifordy2ck|convclk_grayffctrl:is_dual_clk.ififo|convclk_grayffwr:write_control                                              ; convclk_grayffwr   ; work         ;
+;       |fflopx:flxfifoflush_c2r_sh|           ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |rtlfifordy2ck|convclk_grayffctrl:is_dual_clk.ififo|fflopx:flxfifoflush_c2r_sh                                                  ; fflopx             ; work         ;
+;       |fflopx:flxfifoflush_c2w_sh|           ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |rtlfifordy2ck|convclk_grayffctrl:is_dual_clk.ififo|fflopx:flxfifoflush_c2w_sh                                                  ; fflopx             ; work         ;
+;       |fflopx:flxfifoflush_r2w_sh|           ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |rtlfifordy2ck|convclk_grayffctrl:is_dual_clk.ififo|fflopx:flxfifoflush_r2w_sh                                                  ; fflopx             ; work         ;
+;    |iarray113x:is_dual_clk.imemfifo|         ; 0 (0)               ; 47 (47)                   ; 4096              ; 0          ; 0    ; 0            ; |rtlfifordy2ck|iarray113x:is_dual_clk.imemfifo                                                                                  ; iarray113x         ; work         ;
+;       |alsyncram112x:ram|                    ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |rtlfifordy2ck|iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram                                                                ; alsyncram112x      ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |rtlfifordy2ck|iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component                                ; altsyncram         ; work         ;
+;             |altsyncram_ppn1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096              ; 0          ; 0    ; 0            ; |rtlfifordy2ck|iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component|altsyncram_ppn1:auto_generated ; altsyncram_ppn1    ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+--------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                ;
++-----------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                        ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++-----------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component|altsyncram_ppn1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 128          ; 32           ; 128          ; 32           ; 4096 ; None ;
++-----------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 347   ;
+; Number of registers using Synchronous Clear  ; 34    ;
+; Number of registers using Synchronous Load   ; 32    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 211   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; flushrd                                ; 16      ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |rtlfifordy2ck|reqlen[3]                                                                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |rtlfifordy2ck|reqwrlen[0]                                                                      ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 96 LEs               ; 64 LEs                 ; Yes        ; |rtlfifordy2ck|fifodout[17]~reg0                                                                ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |rtlfifordy2ck|convclk_grayffctrl:is_dual_clk.ififo|convclk_grayffwr:write_control|wrpnt_bin[2] ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |rtlfifordy2ck|reqrdcnt[2]                                                                      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |rtlfifordy2ck|convclk_grayffctrl:is_dual_clk.ififo|convclk_grayffrd:read_control|rdpnt_bin[5]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component|altsyncram_ppn1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                        ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                         ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |rtlfifordy2ck ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; ADD            ; 7     ; Signed Integer                                       ;
+; LEN            ; 128   ; Signed Integer                                       ;
+; CHK            ; 2     ; Signed Integer                                       ;
+; WIDTH          ; 32    ; Signed Integer                                       ;
+; WIDTH1         ; 34    ; Signed Integer                                       ;
+; TYPE           ; AUTO  ; String                                               ;
+; DUAL_CLK       ; ON    ; String                                               ;
+; LENGTH         ; 0101  ; Unsigned Binary                                      ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; ADDRB          ; 7     ; Signed Integer                                           ;
+; LENGTH         ; 128   ; Signed Integer                                           ;
+; FSHW           ; 3     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo|fflopx:flxfifoflush_c2w_sh ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                                                      ;
+; RESET_VALUE    ; 0000  ; Unsigned Binary                                                                     ;
+; RESET_ON       ; 0     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo|fflopx:flxfifoflush_r2w_sh ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                                                      ;
+; RESET_VALUE    ; 0000  ; Unsigned Binary                                                                     ;
+; RESET_ON       ; 0     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo|fflopx:flxfifoflush_c2r_sh ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; WIDTH          ; 4     ; Signed Integer                                                                      ;
+; RESET_VALUE    ; 0000  ; Unsigned Binary                                                                     ;
+; RESET_ON       ; 0     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo|convclk_grayffwr:write_control ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+; ADDRB          ; 7     ; Signed Integer                                                                          ;
+; FSHW           ; 3     ; Signed Integer                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: convclk_grayffctrl:is_dual_clk.ififo|convclk_grayffrd:read_control ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------------+
+; ADDRB          ; 7     ; Signed Integer                                                                         ;
+; FSHW           ; 3     ; Signed Integer                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iarray113x:is_dual_clk.imemfifo ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; ADDRBIT        ; 7     ; Signed Integer                                      ;
+; DEPTH          ; 128   ; Signed Integer                                      ;
+; WIDTH          ; 32    ; Signed Integer                                      ;
+; TYPE           ; AUTO  ; String                                              ;
+; MAXDEPTH       ; 0     ; Signed Integer                                      ;
+; MEM_RESET      ; OFF   ; String                                              ;
+; NUMCLK         ; 2     ; Signed Integer                                      ;
+; NCLK           ; 2     ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; ADDRBIT        ; 7     ; Signed Integer                                                        ;
+; DEPTH          ; 128   ; Signed Integer                                                        ;
+; WIDTH          ; 32    ; Signed Integer                                                        ;
+; TYPE           ; AUTO  ; String                                                                ;
+; MAXDEPTH       ; 0     ; Signed Integer                                                        ;
+; NUMCLK         ; 2     ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+--------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                               ;
++------------------------------------+----------------------+--------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                            ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                         ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                       ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                       ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                     ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                            ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                            ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                                     ;
+; WIDTHAD_A                          ; 7                    ; Signed Integer                                                     ;
+; NUMWORDS_A                         ; 128                  ; Signed Integer                                                     ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                            ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                            ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                            ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                            ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                            ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                            ;
+; WIDTH_B                            ; 32                   ; Signed Integer                                                     ;
+; WIDTHAD_B                          ; 7                    ; Signed Integer                                                     ;
+; NUMWORDS_B                         ; 128                  ; Signed Integer                                                     ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                            ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                            ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                            ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                            ;
+; OUTDATA_REG_B                      ; CLOCK1               ; Untyped                                                            ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                            ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                            ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                            ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                            ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                            ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                            ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                            ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                     ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                            ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                            ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                            ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                            ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                            ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                            ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                                            ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                            ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                                                     ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                                            ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                            ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                            ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                            ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                            ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                            ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                            ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                            ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                            ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                            ;
+; CBXI_PARAMETER                     ; altsyncram_ppn1      ; Untyped                                                            ;
++------------------------------------+----------------------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                              ;
++-------------------------------------------+-----------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                             ;
++-------------------------------------------+-----------------------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                                 ;
+; Entity Instance                           ; iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                         ;
+;     -- WIDTH_A                            ; 32                                                                                ;
+;     -- NUMWORDS_A                         ; 128                                                                               ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                      ;
+;     -- WIDTH_B                            ; 32                                                                                ;
+;     -- NUMWORDS_B                         ; 128                                                                               ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                            ;
+;     -- OUTDATA_REG_B                      ; CLOCK1                                                                            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                              ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                         ;
++-------------------------------------------+-----------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "iarray113x:is_dual_clk.imemfifo" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; test ; Input ; Info     ; Stuck at GND                      ;
+; mask ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "convclk_grayffctrl:is_dual_clk.ififo"                                                    ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; half_full ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 347                         ;
+;     ENA               ; 162                         ;
+;     ENA SCLR          ; 17                          ;
+;     ENA SLD           ; 32                          ;
+;     SCLR              ; 17                          ;
+;     plain             ; 119                         ;
+; arriav_lcell_comb     ; 142                         ;
+;     arith             ; 20                          ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 3                           ;
+;     normal            ; 106                         ;
+;         2 data inputs ; 27                          ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 13                          ;
+;         5 data inputs ; 14                          ;
+;         6 data inputs ; 46                          ;
+;     shared            ; 16                          ;
+;         2 data inputs ; 16                          ;
+; boundary_port         ; 100                         ;
+; stratixv_ram_block    ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 1.02                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Tue Apr  4 00:31:24 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rtlfifordy2ck -c rtlfifordy2ck
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Warning (10335): Unrecognized synthesis attribute "keep_hierarchy" at ../iarray113x.v(20) File: I:/Keccak/keccak-hw-prj/fifo2clk/iarray113x.v Line: 20
+Warning (10463): Verilog HDL Declaration warning at iarray113x.v(57): "do" is SystemVerilog-2005 keyword File: I:/Keccak/keccak-hw-prj/fifo2clk/iarray113x.v Line: 57
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/iarray113x.v
+    Info (12023): Found entity 1: iarray113x File: I:/Keccak/keccak-hw-prj/fifo2clk/iarray113x.v Line: 20
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/alsyncram112x.v
+    Info (12023): Found entity 1: alsyncram112x File: I:/Keccak/keccak-hw-prj/fifo2clk/alsyncram112x.v Line: 16
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/rtlfifordy2ck.v
+    Info (12023): Found entity 1: rtlfifordy2ck File: I:/Keccak/keccak-hw-prj/fifo2clk/rtlfifordy2ck.v Line: 14
+Warning (10335): Unrecognized synthesis attribute "keep_hierarchy" at ../iarray111x.v(25) File: I:/Keccak/keccak-hw-prj/fifo2clk/iarray111x.v Line: 25
+Warning (10463): Verilog HDL Declaration warning at iarray111x.v(61): "do" is SystemVerilog-2005 keyword File: I:/Keccak/keccak-hw-prj/fifo2clk/iarray111x.v Line: 61
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/iarray111x.v
+    Info (12023): Found entity 1: iarray111x File: I:/Keccak/keccak-hw-prj/fifo2clk/iarray111x.v Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/fifox.v
+    Info (12023): Found entity 1: fifox File: I:/Keccak/keccak-hw-prj/fifo2clk/fifox.v Line: 17
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/fifodoutx.v
+    Info (12023): Found entity 1: fifodoutx File: I:/Keccak/keccak-hw-prj/fifo2clk/fifodoutx.v Line: 16
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/fifoctrlx.v
+    Info (12023): Found entity 1: fifoctrlx File: I:/Keccak/keccak-hw-prj/fifo2clk/fifoctrlx.v Line: 16
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/fifoc_fshx.v
+    Info (12023): Found entity 1: fifoc_fshx File: I:/Keccak/keccak-hw-prj/fifo2clk/fifoc_fshx.v Line: 18
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/fifoc_anylenx.v
+    Info (12023): Found entity 1: fifoc_anylenx File: I:/Keccak/keccak-hw-prj/fifo2clk/fifoc_anylenx.v Line: 17
+Warning (10335): Unrecognized synthesis attribute "keep_hierarchy" at ../fflopxe.v(14) File: I:/Keccak/keccak-hw-prj/fifo2clk/fflopxe.v Line: 14
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/fflopxe.v
+    Info (12023): Found entity 1: fflopxe File: I:/Keccak/keccak-hw-prj/fifo2clk/fflopxe.v Line: 14
+Warning (10335): Unrecognized synthesis attribute "keep_hierarchy" at ../fflopx.v(13) File: I:/Keccak/keccak-hw-prj/fifo2clk/fflopx.v Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/fflopx.v
+    Info (12023): Found entity 1: fflopx File: I:/Keccak/keccak-hw-prj/fifo2clk/fflopx.v Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/convclk_grayffwr.v
+    Info (12023): Found entity 1: convclk_grayffwr File: I:/Keccak/keccak-hw-prj/fifo2clk/convclk_grayffwr.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/convclk_grayffrd.v
+    Info (12023): Found entity 1: convclk_grayffrd File: I:/Keccak/keccak-hw-prj/fifo2clk/convclk_grayffrd.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/convclk_grayffctrl.v
+    Info (12023): Found entity 1: convclk_grayffctrl File: I:/Keccak/keccak-hw-prj/fifo2clk/convclk_grayffctrl.v Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file /keccak/keccak-hw-prj/fifo2clk/altsyncram111x.v
+    Info (12023): Found entity 1: altsyncram111x File: I:/Keccak/keccak-hw-prj/fifo2clk/altsyncram111x.v Line: 17
+Info (12127): Elaborating entity "rtlfifordy2ck" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at rtlfifordy2ck.v(423): object "reqwerr" assigned a value but never read File: I:/Keccak/keccak-hw-prj/fifo2clk/rtlfifordy2ck.v Line: 423
+Warning (10230): Verilog HDL assignment warning at rtlfifordy2ck.v(427): truncated value with size 4 to match size of target (3) File: I:/Keccak/keccak-hw-prj/fifo2clk/rtlfifordy2ck.v Line: 427
+Info (10264): Verilog HDL Case Statement information at rtlfifordy2ck.v(443): all case item expressions in this case statement are onehot File: I:/Keccak/keccak-hw-prj/fifo2clk/rtlfifordy2ck.v Line: 443
+Info (10264): Verilog HDL Case Statement information at rtlfifordy2ck.v(500): all case item expressions in this case statement are onehot File: I:/Keccak/keccak-hw-prj/fifo2clk/rtlfifordy2ck.v Line: 500
+Info (12128): Elaborating entity "convclk_grayffctrl" for hierarchy "convclk_grayffctrl:is_dual_clk.ififo" File: I:/Keccak/keccak-hw-prj/fifo2clk/rtlfifordy2ck.v Line: 310
+Info (12128): Elaborating entity "fflopx" for hierarchy "convclk_grayffctrl:is_dual_clk.ififo|fflopx:flxfifoflush_c2w_sh" File: I:/Keccak/keccak-hw-prj/fifo2clk/convclk_grayffctrl.v Line: 109
+Info (12128): Elaborating entity "convclk_grayffwr" for hierarchy "convclk_grayffctrl:is_dual_clk.ififo|convclk_grayffwr:write_control" File: I:/Keccak/keccak-hw-prj/fifo2clk/convclk_grayffctrl.v Line: 131
+Info (12128): Elaborating entity "convclk_grayffrd" for hierarchy "convclk_grayffctrl:is_dual_clk.ififo|convclk_grayffrd:read_control" File: I:/Keccak/keccak-hw-prj/fifo2clk/convclk_grayffctrl.v Line: 146
+Info (12128): Elaborating entity "iarray113x" for hierarchy "iarray113x:is_dual_clk.imemfifo" File: I:/Keccak/keccak-hw-prj/fifo2clk/rtlfifordy2ck.v Line: 325
+Warning (10036): Verilog HDL or VHDL warning at iarray113x.v(68): object "cnt" assigned a value but never read File: I:/Keccak/keccak-hw-prj/fifo2clk/iarray113x.v Line: 68
+Info (12128): Elaborating entity "alsyncram112x" for hierarchy "iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram" File: I:/Keccak/keccak-hw-prj/fifo2clk/iarray113x.v Line: 134
+Info (12128): Elaborating entity "altsyncram" for hierarchy "iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component" File: I:/Keccak/keccak-hw-prj/fifo2clk/alsyncram112x.v Line: 116
+Info (12130): Elaborated megafunction instantiation "iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component" File: I:/Keccak/keccak-hw-prj/fifo2clk/alsyncram112x.v Line: 116
+Info (12133): Instantiated megafunction "iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component" with the following parameter: File: I:/Keccak/keccak-hw-prj/fifo2clk/alsyncram112x.v Line: 116
+    Info (12134): Parameter "operation_mode" = "DUAL_PORT"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "widthad_a" = "7"
+    Info (12134): Parameter "numwords_a" = "128"
+    Info (12134): Parameter "width_b" = "32"
+    Info (12134): Parameter "widthad_b" = "7"
+    Info (12134): Parameter "numwords_b" = "128"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "outdata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "indata_aclr_a" = "NONE"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "NONE"
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "intended_device_family" = "Stratix"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ppn1.tdf
+    Info (12023): Found entity 1: altsyncram_ppn1 File: I:/Keccak/keccak-hw-prj/fifo2clk/qtus/db/altsyncram_ppn1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_ppn1" for hierarchy "iarray113x:is_dual_clk.imemfifo|alsyncram112x:ram|altsyncram:altsyncram_component|altsyncram_ppn1:auto_generated" File: h:/intelfpga_lite/21.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 532 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 40 input pins
+    Info (21059): Implemented 60 output pins
+    Info (21061): Implemented 400 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info: Peak virtual memory: 4907 megabytes
+    Info: Processing ended: Tue Apr  4 00:31:31 2023
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:05
+
+

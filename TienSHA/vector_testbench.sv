@@ -36,7 +36,7 @@ top_module itop_module(
 	
 	.finish_hash(finish_hash), 
 	.dt_o_hash(dt_o_hash), 
-	.ready(ready)
+	.ready(ready),
 	
 	///////////////for output hash data to async fifo/////////////
 	.clkwffo(clkwffo),

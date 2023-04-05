@@ -1,0 +1,50 @@
+D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffclkconvx.v {1 {vlog -work work -vopt -stats=none D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffclkconvx.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module ffclkconvx
+
+Top level modules:
+	ffclkconvx
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopxe.v {1 {vlog -work work -vopt -stats=none D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopxe.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module fflopxe
+
+Top level modules:
+	fflopxe
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopnx.v {1 {vlog -work work -vopt -stats=none D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopnx.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module fflopnx
+
+Top level modules:
+	fflopnx
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclk.v {1 {vlog -work work -vopt -stats=none D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclk.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module ffxkclk
+
+Top level modules:
+	ffxkclk
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclkx.v {1 {vlog -work work -vopt -stats=none D:/ntthps/keccak-hw-prj/TienSHA/fflopx/ffxkclkx.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module ffxkclkx
+
+Top level modules:
+	ffxkclkx
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopsx.v {1 {vlog -work work -vopt -stats=none D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopsx.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module fflopsx
+
+Top level modules:
+	fflopsx
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopx.v {1 {vlog -work work -vopt -stats=none D:/ntthps/keccak-hw-prj/TienSHA/fflopx/fflopx.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module fflopx
+
+Top level modules:
+	fflopx
+
+} {} {}}

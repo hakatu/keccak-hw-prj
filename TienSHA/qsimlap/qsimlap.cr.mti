@@ -84,13 +84,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	control_2
 
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/pipeline_reg.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/pipeline_reg.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module pipeline_reg
-
-Top level modules:
-	pipeline_reg
-
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/sm_chi.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/sm_chi.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling package sm_chi_sv_unit
@@ -101,6 +94,20 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	sm_theta_chi_tb
 
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/pipeline_reg.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/pipeline_reg.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module pipeline_reg
+
+Top level modules:
+	pipeline_reg
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module trunc
+
+Top level modules:
+	trunc
+
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/sm_iota.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/sm_iota.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling package sm_iota_sv_unit
@@ -110,12 +117,21 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	sm_iota
 
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/sm_theta.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/sm_theta.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module trunc
+-- Compiling package sm_theta_sv_unit
+-- Importing package keccak_pkg
+-- Compiling module sm_theta
 
 Top level modules:
-	trunc
+	sm_theta
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/mux2to1_1600bit.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/mux2to1_1600bit.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module mux2to1_1600bit
+
+Top level modules:
+	mux2to1_1600bit
 
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_PL.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_PL.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -127,21 +143,20 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	keccak_core_PL_tb
 
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/mux2to1_1600bit.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/mux2to1_1600bit.sv
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/VSX_module.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/VSX_module.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module mux2to1_1600bit
+-- Compiling module VSX_module
+-- Compiling module VSX_module_tb
 
 Top level modules:
-	mux2to1_1600bit
+	VSX_module_tb
 
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/sm_theta.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/sm_theta.sv
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/control_signal.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/control_signal.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling package sm_theta_sv_unit
--- Importing package keccak_pkg
--- Compiling module sm_theta
+-- Compiling module control_signal
 
 Top level modules:
-	sm_theta
+	control_signal
 
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_ad_NOPL.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_ad_NOPL.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -153,29 +168,15 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	keccak_core_ad_NOPL_tb
 
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/control_signal.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/control_signal.sv
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/string_to_array.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/string_to_array.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module control_signal
-
-Top level modules:
-	control_signal
-
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/VSX_module.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/VSX_module.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module VSX_module
--- Compiling module VSX_module_tb
-
-Top level modules:
-	VSX_module_tb
-
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/array_to_string.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/array_to_string.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling package array_to_string_sv_unit
+-- Compiling package string_to_array_sv_unit
 -- Importing package keccak_pkg
--- Compiling module array_to_string
+-- Compiling module string_to_array
+-- Compiling module string_to_array_tb
 
 Top level modules:
-	array_to_string
+	string_to_array_tb
 
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/step_mapping.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/step_mapping.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -187,30 +188,14 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	step_mapping_tb
 
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/string_to_array.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/string_to_array.sv
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/array_to_string.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/array_to_string.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling package string_to_array_sv_unit
+-- Compiling package array_to_string_sv_unit
 -- Importing package keccak_pkg
--- Compiling module string_to_array
--- Compiling module string_to_array_tb
+-- Compiling module array_to_string
 
 Top level modules:
-	string_to_array_tb
-
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/counter.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/counter.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module counter
-
-Top level modules:
-	counter
-
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module buffer_in
--- Compiling module buffer_in_test
-
-Top level modules:
-	buffer_in_test
+	array_to_string
 
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/sm_pi.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/sm_pi.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -220,6 +205,21 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 
 Top level modules:
 	sm_pi
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module buffer_in
+-- Compiling module buffer_in_test
+
+Top level modules:
+	buffer_in_test
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/counter.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/counter.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module counter
+
+Top level modules:
+	counter
 
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/buffer_in_2.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/buffer_in_2.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021

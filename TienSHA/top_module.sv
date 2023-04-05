@@ -68,6 +68,12 @@ module top_module(
 	logic		[4:0] round_num;
 	output logic		ready;
 
+	output logic clkrffi;
+	output logic rincffi;
+
+	output logic clkwffo;
+	output logic wincffo;
+
 //////////////////////////////////////////////////////////////////////////////
 //logic for new last block //tested
     // Initialize the byte_counter
@@ -115,7 +121,7 @@ end
 //out to fifo out
 assign wincffo = 1'b1;
 
-logic clkwffo;
+//logic clkwffo;
 
 always @(posedge clk) begin
 	if(rst_n)
@@ -134,7 +140,7 @@ end
 
 assign rincffi = 1'b1;
 
-logic clkrffi;
+//logic clkrffi;
 
 always @(posedge clk) begin
 	if(rst_n)
@@ -151,7 +157,7 @@ end
 parameter FFDL = 3; //3 clocks delay 
 wire startdl;
 
-ffxkclkx iffxkclkx1 #(FFDL,1) (clk,!rst_n,start,startdl);
+ffxkclkx #(FFDL,1) iffxkclkx1 (clk,!rst_n,start,startdl);
 
 ///////////////////////structural added////////////////////////////////////////
 //buffer_in buff_in(clk, rst_n, dt_i, cmode, last_block, valid, dt_o, buff_full, first, en_counter); //legcay

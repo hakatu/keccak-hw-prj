@@ -1,5 +1,2 @@
-# Error opening I:/Keccak/TienSHA/keccak_core_PL.sv
-# Path name 'I:/Keccak/TienSHA/keccak_core_PL.sv' doesn't exist.
-# 0 compiles, 32 failed with no errors.
-# Error opening I:/Keccak/TienSHA/sm_theta.sv
-# Path name 'I:/Keccak/TienSHA/sm_theta.sv' doesn't exist.
+# Error opening I:/Keccak/TienSHA/top_module.sv
+# Path name 'I:/Keccak/TienSHA/top_module.sv' doesn't exist.
