@@ -101,6 +101,13 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	pipeline_reg
 
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/write_output.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/write_output.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module write_output
+
+Top level modules:
+	write_output
+
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling module trunc
@@ -197,6 +204,26 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	array_to_string
 
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module get_input
+-- Compiling module pc_counter
+-- Compiling module readfile
+-- Compiling module readfile_tb
+
+Top level modules:
+	readfile_tb
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling package top_module_sv_unit
+-- Importing package keccak_pkg
+-- Compiling module top_module
+-- Compiling module top_module_tb
+
+Top level modules:
+	top_module_tb
+
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/sm_pi.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/sm_pi.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling package sm_pi_sv_unit
@@ -237,5 +264,12 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 
 Top level modules:
 	keccak_core_NOPL_tb
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/vector_testbench.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/vector_testbench.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module vector_testbench
+
+Top level modules:
+	vector_testbench
 
 } {} {}}

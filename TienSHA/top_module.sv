@@ -119,17 +119,17 @@ end
 
 /////////////////////this part is for fifo hehe//////////////////////////
 //out to fifo out
-assign wincffo = 1'b1;
+assign clkrffi = clk;
 
 //logic clkwffo;
 
 always @(posedge clk) begin
 	if(rst_n)
-	clkwffo <= 1'b0;
-	else if(finish_hash)
-	clkwffo <= clkwffo;
-	else if (ready) begin
-		clkwffo <= !clkwffo;
+	rincffi <= 1'b0;
+	else if(newlastblock)
+	rincffi <= 1'b0;
+	else if (start) begin
+		rincffi <= 1'b1;
 	end
 end
 
@@ -138,18 +138,18 @@ end
 
 //in for fifo in
 
-assign rincffi = 1'b1;
+assign clkwffo = clk;
 
 //logic clkrffi;
 
 always @(posedge clk) begin
 	if(rst_n)
-	clkrffi <= 1'b0;
-	else if (newlastblock) begin
-		clkrffi <= clkrffi;
+	wincffo <= 1'b0;
+	else if (finish_hash) begin
+		wincffo <= 1'b0;
 	end
-	else if (start) begin
-		clkrffi <= !clkrffi;
+	else if (ready) begin
+		wincffo <= 1'b1;
 	end
 end
 
