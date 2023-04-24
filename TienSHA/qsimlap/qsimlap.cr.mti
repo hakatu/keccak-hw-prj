@@ -84,13 +84,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	control_2
 
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/write_output.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/write_output.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module write_output
-
-Top level modules:
-	write_output
-
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/sm_chi.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/sm_chi.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling package sm_chi_sv_unit
@@ -107,6 +100,13 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 
 Top level modules:
 	pipeline_reg
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/write_output.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/write_output.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module write_output
+
+Top level modules:
+	write_output
 
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -175,16 +175,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	keccak_core_ad_NOPL_tb
 
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module get_input
--- Compiling module pc_counter
--- Compiling module readfile
--- Compiling module readfile_tb
-
-Top level modules:
-	readfile_tb
-
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/string_to_array.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/string_to_array.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling package string_to_array_sv_unit
@@ -213,6 +203,16 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 
 Top level modules:
 	array_to_string
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module get_input
+-- Compiling module pc_counter
+-- Compiling module readfile
+-- Compiling module readfile_tb
+
+Top level modules:
+	readfile_tb
 
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/top_module.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -255,13 +255,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	buffer_in_2
 
-} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/vector_testbench.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/vector_testbench.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module vector_testbench
-
-Top level modules:
-	vector_testbench
-
 } {} {}} D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_NOPL.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/keccak_core_NOPL.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling package keccak_core_NOPL_sv_unit
@@ -271,5 +264,12 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 
 Top level modules:
 	keccak_core_NOPL_tb
+
+} {} {}} D:/ntthps/keccak-hw-prj/TienSHA/vector_testbench.sv {1 {vlog -work work -vopt -sv -stats=none D:/ntthps/keccak-hw-prj/TienSHA/vector_testbench.sv
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module vector_testbench
+
+Top level modules:
+	vector_testbench
 
 } {} {}}
