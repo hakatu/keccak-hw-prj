@@ -38,70 +38,7 @@ input       wrclock;
 input       rdclock;
 output [WIDTH-1:0] q;
 
-`ifdef XILINX
-localparam RAMSIZE = WIDTH*DEPTH;
-
-/*
-`define ramtypecnv(a,b) {(a == "MLAB") ? "distributed" : (b <= 512) ? "distributed" : "block"}
-localparam RAMTYPE = `ramtypecnv(TYPE,RAMSIZE);
-(* ram_style = RAMTYPE *) reg [WIDTH-1:0] ram [DEPTH-1:0];
-*/
-
-wire [WIDTH-1:0]   q;
-reg [WIDTH-1:0]    do;
-reg [WIDTH-1:0]    q_reg;
-
-generate 
-    if ((TYPE == "MLAB")||(RAMSIZE<=`XRAMDISTMAXSIZE)||(DEPTH<=`XRAMDISTMAXDEPTH))
-        begin
-        (* ram_style = "distributed" *)  reg [WIDTH-1:0] ram [DEPTH-1:0]/* synthesis syn_ramstyle=no_rw_check*/;
-        
-        always @ (posedge wrclock)
-            begin
-            if (wren)
-                begin
-                ram[wraddress] <= data;
-                end        
-            end
-
-always @ (posedge rdclock)
-    begin
-    do  <= ram[rdaddress];
-    end
-end
-
-    else //Auto
-        begin 
-        reg [WIDTH-1:0] ram [DEPTH-1:0]/* synthesis syn_ramstyle=no_rw_check*/;
-        
-        always @ (posedge wrclock)
-            begin
-            if (wren)
-                begin
-                ram[wraddress] <= data;
-                end        
-            end
-
-always @ (posedge rdclock)
-    begin
-    do  <= ram[rdaddress];
-    end
-end
-
-endgenerate
-
-//integer  i;
-//initial  for  (i=0;  i<DEPTH;  i=i+1)  ram[i]  =  0;
-
-
-always @ (posedge rdclock)
-    begin
-    q_reg  <= do;
-    end
-
-assign q = q_reg;
-
-`else //Altera
+`ifdef synthesis
 
 wire [WIDTH-1:0]     sub_wire0;
 wire [WIDTH-1:0]     q = sub_wire0[WIDTH-1:0];
@@ -134,6 +71,49 @@ wire [WIDTH-1:0]     q = sub_wire0[WIDTH-1:0];
         altsyncram_component.outdata_aclr_b = "NONE",
         altsyncram_component.ram_block_type = TYPE,
         altsyncram_component.intended_device_family = "Stratix";
+
+`else
+
+/*
+    data,
+    wren,
+    wraddress,
+    rdaddress,
+    wrclock,
+    rdclock,
+    q)
+*/
+
+reg [WIDTH-1:0]    mem [DEPTH-1:0]; //
+
+reg [ADDRBIT-1:0]   ra_reg;
+reg [WIDTH-1:0]    rdonor;
+
+always@(posedge wrclock)
+    begin
+    if(wren)
+        mem[wraddress] <= data;
+    end
+
+always@(posedge rdclock)
+    begin
+    rdonor <= mem[ra_reg];
+    ra_reg <= rdaddress;
+    end
+
+wire sa; //same address
+wire [WIDTH-1:0] wdi1;
+wire [WIDTH-1:0] wdi2;
+
+assign sa = (rdaddress == wraddress) && wren;
+
+wire   sa2;
+ffxkclkx #(2,1) isa (clkw, rst, sa, sa2);
+
+fflopx #(WIDTH) ifflopx1(clkw,rst,data,wdi1);
+fflopx #(WIDTH) ifflopx2(clkw,rst,wdi1,wdi2);
+
+assign q = sa2? wdi2 : rdonor;
 
 `endif
 

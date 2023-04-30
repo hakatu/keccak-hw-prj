@@ -10,7 +10,7 @@
 // History (Date, Changed By)
 //
 ////////////////////////////////////////////////////////////////////////////////
-
+`define RTLFIFORDY2CK_RAM113
 module rtlfifordy2ck
     (
     //no need to comment on clock domain
