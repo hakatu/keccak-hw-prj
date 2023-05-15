@@ -26,19 +26,19 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	write_output
 
-} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifodoutx.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifodoutx.v
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module fifodoutx
-
-Top level modules:
-	fifodoutx
-
 } {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fflopx/ffxkclkx.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fflopx/ffxkclkx.v
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling module ffxkclkx
 
 Top level modules:
 	ffxkclkx
+
+} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifodoutx.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifodoutx.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module fifodoutx
+
+Top level modules:
+	fifodoutx
 
 } {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fflopx/fflopsx.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fflopx/fflopsx.v
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -54,14 +54,15 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	control_signal
 
-} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/array_to_string.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/array_to_string.sv
+} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/string_to_array.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/string_to_array.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling package array_to_string_sv_unit
+-- Compiling package string_to_array_sv_unit
 -- Importing package keccak_pkg
--- Compiling module array_to_string
+-- Compiling module string_to_array
+-- Compiling module string_to_array_tb
 
 Top level modules:
-	array_to_string
+	string_to_array_tb
 
 } {} {}} I:/Keccak/keccak-hw-prj/TienSHA/step_mapping.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/step_mapping.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -73,15 +74,14 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	step_mapping_tb
 
-} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/string_to_array.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/string_to_array.sv
+} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/array_to_string.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/array_to_string.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling package string_to_array_sv_unit
+-- Compiling package array_to_string_sv_unit
 -- Importing package keccak_pkg
--- Compiling module string_to_array
--- Compiling module string_to_array_tb
+-- Compiling module array_to_string
 
 Top level modules:
-	string_to_array_tb
+	array_to_string
 
 } {} {}} I:/Keccak/keccak-hw-prj/TienSHA/buffer_in.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/buffer_in.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -354,20 +354,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	sm_rho
 
-} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/tb_rtlfifordy2ck.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/tb_rtlfifordy2ck.sv
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module tb_rtlfifordy2ck
-
-Top level modules:
-	tb_rtlfifordy2ck
-
-} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifoc_fshx.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifoc_fshx.v
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module fifoc_fshx
-
-Top level modules:
-	fifoc_fshx
-
 } {} {}} I:/Keccak/keccak-hw-prj/TienSHA/sm_chi.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/sm_chi.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling package sm_chi_sv_unit
@@ -378,6 +364,13 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	sm_theta_chi_tb
 
+} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifoc_fshx.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifoc_fshx.v
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module fifoc_fshx
+
+Top level modules:
+	fifoc_fshx
+
 } {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fflopx/ffxkclk.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fflopx/ffxkclk.v
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 -- Compiling module ffxkclk
@@ -385,12 +378,12 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	ffxkclk
 
-} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifoctrlx.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifoctrlx.v
+} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/altsyncram111x.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/altsyncram111x.v
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module fifoctrlx
+-- Compiling module altsyncram111x
 
 Top level modules:
-	fifoctrlx
+	altsyncram111x
 
 } {} {}} I:/Keccak/keccak-hw-prj/TienSHA/sm_theta.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/sm_theta.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -401,12 +394,12 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 Top level modules:
 	sm_theta
 
-} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/altsyncram111x.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/altsyncram111x.v
+} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifoctrlx.v {1 {vlog -work work -vopt -stats=none I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/fifoctrlx.v
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module altsyncram111x
+-- Compiling module fifoctrlx
 
 Top level modules:
-	altsyncram111x
+	fifoctrlx
 
 } {} {}} I:/Keccak/keccak-hw-prj/TienSHA/VSX_module.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/VSX_module.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -415,13 +408,6 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 
 Top level modules:
 	VSX_module_tb
-
-} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/alsyncram112x.v {1 {vlog -work work -vopt -stats=none {I:\Keccak\keccak-hw-prj\TienSHA\fifo2clk\alsyncram112x.v}
-Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
--- Compiling module alsyncram112x
-
-Top level modules:
-	alsyncram112x
 
 } {} {}} I:/Keccak/keccak-hw-prj/TienSHA/keccak_core_NOPL.sv {1 {vlog -work work -vopt -sv -stats=none I:/Keccak/keccak-hw-prj/TienSHA/keccak_core_NOPL.sv
 Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
@@ -432,5 +418,12 @@ Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
 
 Top level modules:
 	keccak_core_NOPL_tb
+
+} {} {}} I:/Keccak/keccak-hw-prj/TienSHA/fifo2clk/alsyncram112x.v {1 {vlog -work work -vopt -stats=none {I:\Keccak\keccak-hw-prj\TienSHA\fifo2clk\alsyncram112x.v}
+Questa Intel Starter FPGA Edition-64 vlog 2021.2 Compiler 2021.04 Apr 14 2021
+-- Compiling module alsyncram112x
+
+Top level modules:
+	alsyncram112x
 
 } {} {}}

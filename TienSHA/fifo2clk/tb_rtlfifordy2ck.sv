@@ -19,9 +19,13 @@ module tb_rtlfifordy2ck();
     wire [8:0]  fifolen;
     wire [8:0]  fifolenrd;
     wire [7:0]  fifowa;
-
+    
+    parameter ADDRB = 5;
+    parameter LEN = 32;
+    parameter CHK = 2;
+    parameter WID = 32;
     // Instantiate the FIFO module
-    rtlfifordy2ck fifo_inst (
+    rtlfifordy2ck #(ADDRB,LEN,CHK,WID) fifo_inst (
         .wrclk(wrclk),
         .wrrst(wrrst),
         .rdclk(rdclk),
@@ -31,7 +35,7 @@ module tb_rtlfifordy2ck();
         .fifoget(fifoget),
         .fifovld(fifovld),
         .fifowr(fifowr),
-        .fifodi(fifodi),
+        .fifodi(fifodi),  
         .flush(flush),
         .reqen(reqen),
         .fifowrerr(fifowrerr),
