@@ -3,16 +3,57 @@
 	Date: 4/1/2021
 	Author: Tran Cong Tien
 	ID: 1810580
+	Fix by Hung for project Crypto
+	// cmode[2:0]   MODE      Byte of Buffer
+//     0        SHA3-224        144 //change this to shake128 abs
+//     1        SHA3-256        136
+//     2        SHA3-384        104//change this to shake128 sqz
+//     3        SHA3-512         72
+//     4        SHAKE-128       168
+//     5        SHAKE-256       136
 */
 import keccak_pkg::plane;
 import keccak_pkg::state;
 import keccak_pkg::N;
 
-module top_module(clk, rst_n, start, dt_i, cmode, last_block, d, valid, finish_hash, dt_o_hash, ready);
+module top_module(
+	//////////////////////////of course/////////////////////
+	clk, 
+	rst_n, 
+	
+	//////for inputing data/////////
+	start, 
+	dt_i,  
+	cmode, //chose mode of operation, see config above
+	dilen, //length of data in in block of 8 byte
+	d, //length of output for shake (11 bit) in bit
+	valid, //not really needed
+	last_block, //legacy last block 
+	/////////////////////////////////
+	
+	//////for outputing data/////////
+	finish_hash, 
+	dt_o_hash, 
+	ready,
+	/////////////////////////////////
+
+	///////////////for output hash data to async fifo/////////////
+	clkwffo,
+	wincffo,
+	//////////////////////flag only///////////////////////////////
+
+	///////////////for input hash data from async fifo/////////////
+	clkrffi,
+	rincffi
+	//////////////////////flag only///////////////////////////////
+	);
+
+	//////////////////////////////////////////////////////////////////////////////
 	input		clk, rst_n;
 	input		start;
 	input		[63:0] dt_i;
 	input		[2:0] cmode;
+	input		[6:0] dilen;
 	input		last_block;
 	input		[10:0] d;
 	output logic	valid;
@@ -20,14 +61,108 @@ module top_module(clk, rst_n, start, dt_i, cmode, last_block, d, valid, finish_h
 	output logic	[31:0] dt_o_hash;
 
 	logic		last_block, buff_full, first, nxt_block, en_vsx, en_counter, finish;
+	logic		newlastblock; //1/4 added last block
 	logic		[1343:0] dt_o;
-	state		tr_out, tr_in, a;
+	state		tr_out, tr_in;//, a;
 	logic		[1599:0] init_state, data_to_sta, tr_out_string, tr_out_string_finish;
 	logic		[4:0] round_num;
 	output logic		ready;
 
-buffer_in buff_in(clk, rst_n, dt_i, cmode, last_block, valid, dt_o, buff_full, first, en_counter);	
+	output logic clkrffi;
+	output logic rincffi;
+
+	output logic clkwffo;
+	output logic wincffo;
+
+//////////////////////////////////////////////////////////////////////////////
+//logic for new last block //tested
+    // Initialize the byte_counter
+    logic [6:0] byte_counter = 7'b0;
+    
+	/*
+    // Update the byte_counter when valid
+	// cai nay sai do start luon bat, start neu chi bat luc block dau thi dung
+    always_ff @(posedge clk) begin
+        if (!rst_n) begin
+            byte_counter <= 7'b0;
+        end 
+		else if (start) begin
+            byte_counter <= 7'd1;
+        end
+		else
+		begin
+		byte_counter <= byte_counter + 7'd1;
+		end
+    end
+	*/
+
+    // Update the byte_counter when valid
+	// Update for start holding high when operating
+    always_ff @(posedge clk) begin
+        if (!rst_n) begin
+            byte_counter <= 7'd0;
+		end
+		else if (newlastblock) begin
+            byte_counter <= byte_counter;
+		end
+        else if (start) begin
+            byte_counter <= byte_counter + 7'd1;
+        end else if (!start) begin
+            byte_counter <= 7'd0;
+        end
+    end
+	
+// Add logic to generate last_block signal based on dilen and byte_counter
+always_comb begin
+    newlastblock = byte_counter == dilen;
+end
+
+/////////////////////this part is for fifo hehe//////////////////////////
+//out to fifo out
+assign clkrffi = clk;
+
+//logic clkwffo;
+
+always @(posedge clk) begin
+	if(rst_n)
+	rincffi <= 1'b0;
+	else if(newlastblock)
+	rincffi <= 1'b0;
+	else if (start) begin
+		rincffi <= 1'b1;
+	end
+end
+
+///this logic is correct because ready set to 1 when hashing is done, finish hash is the last block of hash
+//and prolonged until next hash
+
+//in for fifo in
+
+assign clkwffo = clk;
+
+//logic clkrffi;
+
+always @(posedge clk) begin
+	if(rst_n)
+	wincffo <= 1'b0;
+	else if (finish_hash) begin
+		wincffo <= 1'b0;
+	end
+	else if (ready) begin
+		wincffo <= 1'b1;
+	end
+end
+
+//it is important to note the delay of FIFO
+parameter FFDL = 3; //3 clocks delay 
+wire startdl;
+
+ffxkclkx #(FFDL,1) iffxkclkx1 (clk,!rst_n,start,startdl);
+
+///////////////////////structural added////////////////////////////////////////
+//buffer_in buff_in(clk, rst_n, dt_i, cmode, last_block, valid, dt_o, buff_full, first, en_counter); //legcay
 //buffer_in_2 buff_in(clk, rst_n, dt_i, cmode, last_block, valid, dt_o, buff_full, first, en_counter);	
+buffer_in buff_in(clk, rst_n, dt_i, cmode, newlastblock, valid, dt_o, buff_full, first, en_counter);
 
 mux2to1_1600bit mux2to1(1600'b0, tr_out_string_finish, nxt_block, init_state);
 VSX_module VSX(dt_o, init_state, cmode, en_vsx, data_to_sta);
@@ -35,10 +170,11 @@ string_to_array sta(data_to_sta, tr_in);
 transformation_round tr(clk, rst_n, tr_in, round_num, tr_out, finish);
 counter counter(clk, rst_n, en_counter, round_num);
 //control_signal control(clk, rst_n, start, last_block, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready);
-control control(clk, rst_n, start, last_block, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready);
+//control control(clk, rst_n, start, last_block, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready); //legacy
+control control(clk, rst_n, startdl, newlastblock, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready);
 //control_2 control(clk, rst_n, start, last_block, buff_full, first, finish, valid, nxt_block, en_vsx, en_counter, ready);
 
-assign a = tr_out;
+//assign a = tr_out;
 array_to_string ats(tr_out, tr_out_string);
 register re(clk, rst_n, finish, tr_out_string, tr_out_string_finish);
 

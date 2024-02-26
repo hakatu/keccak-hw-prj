@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Tue Apr  4 00:31:31 2023
+Quartus Prime Version : 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+Revision Name : rtlfifordy2ck
+Top-level Entity Name : rtlfifordy2ck
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 347
+Total pins : 100
+Total virtual pins : 0
+Total block memory bits : 4,096
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

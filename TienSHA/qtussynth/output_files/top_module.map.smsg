@@ -1,0 +1,4 @@
+Warning (10268): Verilog HDL information at trunc.sv(59): always construct contains both blocking and non-blocking assignments File: D:/ntthps/keccak-hw-prj/TienSHA/trunc.sv Line: 59
+Warning (10268): Verilog HDL information at get_input.sv(123): always construct contains both blocking and non-blocking assignments File: D:/ntthps/keccak-hw-prj/TienSHA/get_input.sv Line: 123
+Warning (10268): Verilog HDL information at buffer_in_2.sv(42): always construct contains both blocking and non-blocking assignments File: D:/ntthps/keccak-hw-prj/TienSHA/buffer_in_2.sv Line: 42
+Warning (10268): Verilog HDL information at buffer_in.sv(49): always construct contains both blocking and non-blocking assignments File: D:/ntthps/keccak-hw-prj/TienSHA/buffer_in.sv Line: 49

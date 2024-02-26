@@ -1,0 +1,73 @@
+//////////////////////////////////////////////////////////////////////////////////
+//
+//  Arrive Technologies
+//
+// Filename        : fflopx.v
+// Description     : variable size flip flop
+//
+// Author          : ducdd@atvn.com.vn
+// Created On      : Tue Jul 29 18:00:29 2003
+// History (Date, Changed By)
+//
+//////////////////////////////////////////////////////////////////////////////////
+module fflopx
+    (
+     clk,
+     rst,
+     idat,
+     odat
+     );
+
+parameter WIDTH = 8;
+parameter RESET_VALUE = {WIDTH{1'b0}};
+parameter RESET_ON = 0; //set to 1 if need reset function
+
+input   clk, rst;
+
+input  [WIDTH-1:0] idat;
+
+output [WIDTH-1:0] odat;
+//reg [WIDTH-1:0]   odat = RESET_VALUE; // updated by hw-bhtcuong
+
+generate
+if (RESET_ON == 0)
+    begin: no_reset
+    //fflopnx #(WIDTH,RESET_VALUE) flop_ins (clk,rst_,idat,odat)
+    /*
+    always @ (posedge clk)
+    begin
+    odat <= idat;
+    end
+     */
+    // added by hw-bhtcuong, thi is use for initial value of synthesis
+    reg    [WIDTH-1:0] iodat = RESET_VALUE;
+    assign             odat = iodat;
+    always @ (posedge clk)
+        begin
+        iodat <= idat;
+        end
+    // end
+    end
+else
+    begin:with_reset    
+    //fflopsx #(WIDTH,RESET_VALUE) flop_ins (clk,rst_,idat,odat)
+    /*
+    always @ (posedge clk)
+        begin
+        if (rst) odat <= RESET_VALUE;
+        else odat <= idat;
+        end
+     */
+    // added by hw-bhtcuong, thi is use for initial value of synthesis
+    reg    [WIDTH-1:0] iodat = RESET_VALUE;
+    assign             odat = iodat;
+    always @ (posedge clk)
+        begin
+        if (rst) iodat <= RESET_VALUE;
+        else iodat <= idat;
+        end
+    // end
+    end
+endgenerate
+
+endmodule
